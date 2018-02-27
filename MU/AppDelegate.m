@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MainTabBarViewController.h"
+#import "MULoginViewController.h"
+#import "MULoginModel.h"
 
 @interface AppDelegate ()
 
@@ -19,12 +21,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    MainTabBarViewController *vc = [[MainTabBarViewController alloc] init];
-    self.window.rootViewController = vc;
+    if([[MULoginModel sharedInstamce] isEverLogin]){
+        [self showMainViewController];
+    }else{
+        [self showLoginViewController];
+    }
     [self.window makeKeyAndVisible];
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -52,5 +56,23 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark - public
++ (AppDelegate *)instance {
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
+- (void)showMainViewController {
+    MainTabBarViewController *vc = [[MainTabBarViewController alloc] init];
+    UINavigationController *rootNavigation = [[UINavigationController alloc] initWithRootViewController:vc];
+    rootNavigation.navigationBarHidden = YES;
+    self.window.rootViewController = rootNavigation;
+}
+
+- (void)showLoginViewController {
+    MULoginViewController *vc = [[MULoginViewController alloc] init];
+    UINavigationController *rootNavigation = [[UINavigationController alloc] initWithRootViewController:vc];
+    rootNavigation.navigationBarHidden = YES;
+    self.window.rootViewController = rootNavigation;
+}
 
 @end

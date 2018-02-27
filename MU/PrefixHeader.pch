@@ -15,4 +15,21 @@
 #import <YYKit/YYKit.h>
 #import "Masonry.h"
 
+#define IOS3_OR_LATER   SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"3.0")
+#define IOS4_OR_LATER    SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"4.0")
+#define IOS5_OR_LATER    SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0")
+#define IOS6_OR_LATER    SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")
+#define IOS7_OR_LATER    SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")
+#define IOS8_OR_LATER    SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")
+#define IOS8_2_OR_LATER    SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.2")
+#define IOS9_OR_LATER    SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0")
+#define IOS9_3_OR_LATER    SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.3")
+#define IOS10_OR_LATER  SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")
+#define IOS11_OR_LATER  SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11.0")
+
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+#define ScreenHeight [[UIScreen mainScreen] bounds].size.height
+#define ScreenWidth [[UIScreen mainScreen] bounds].size.width
+
 #endif /* PrefixHeader_pch */
