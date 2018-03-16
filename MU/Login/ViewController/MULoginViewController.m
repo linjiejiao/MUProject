@@ -7,7 +7,10 @@
 //
 
 #import "MULoginViewController.h"
+#import "MURegisterViewController.h"
+
 #import "AppDelegate.h"
+#import "MULoginModel.h"
 
 @interface MULoginViewController ()
 @property (strong, nonatomic) UIScrollView *scrollView;
@@ -92,6 +95,32 @@
     [loginButton addTarget:self action:@selector(loginClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:loginButton];
 
+    UIButton *forgetPasswordButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    forgetPasswordButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    [forgetPasswordButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    [forgetPasswordButton setTitle:NSLocalizedString(@"login_forget_password", nil) forState:UIControlStateNormal];
+    [forgetPasswordButton addTarget:self action:@selector(forgetPasswordClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollView addSubview:forgetPasswordButton];
+    [forgetPasswordButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(loginButton.mas_bottom).offset(20);
+        make.leading.equalTo(loginButton.mas_leading);
+    }];
+
+    UIButton *gegisterButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    gegisterButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    gegisterButton.layer.cornerRadius = 2;
+    gegisterButton.layer.borderColor = UIColor.whiteColor.CGColor;
+    gegisterButton.layer.borderWidth = 1;
+    [gegisterButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    [gegisterButton setTitle:NSLocalizedString(@"login_register_button", nil) forState:UIControlStateNormal];
+    [gegisterButton addTarget:self action:@selector(registerClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [gegisterButton sizeToFit];
+    [self.scrollView addSubview:gegisterButton];
+    [gegisterButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(loginButton.mas_bottom).offset(20);
+        make.trailing.equalTo(loginButton.mas_trailing);
+        make.width.mas_equalTo(gegisterButton.frame.size.width + 10);
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -106,7 +135,7 @@
 }
 
 - (void)dealloc {
-    
+
 }
 
 #pragma mark - user actions
@@ -118,6 +147,15 @@
 
 - (void)loginClicked:(UIButton *)button {
     [[AppDelegate instance] showMainViewController];
+    [[MULoginModel sharedInstance] setIsEverLogin:YES];
+}
+
+- (void)forgetPasswordClicked:(UIButton *)button {
+}
+
+- (void)registerClicked:(UIButton *)button {
+    MURegisterViewController *registerVC = [[MURegisterViewController alloc] init];
+    [self.navigationController pushViewController:registerVC animated:YES];
 }
 
 #pragma mark - Notifications

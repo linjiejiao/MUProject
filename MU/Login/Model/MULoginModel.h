@@ -10,8 +10,10 @@
 
 @interface MULoginModel : NSObject
 
-+ (MULoginModel *)sharedInstamce;
++ (MULoginModel *)sharedInstance;
 
 - (BOOL)isEverLogin;
+
+- (void)setIsEverLogin:(BOOL)isEverLogin;
 
 @end

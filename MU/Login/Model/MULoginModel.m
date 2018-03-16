@@ -7,10 +7,11 @@
 //
 
 #import "MULoginModel.h"
+#import "GlobalConfigModel.h"
 
 @implementation MULoginModel
 
-+ (MULoginModel *)sharedInstamce {
++ (MULoginModel *)sharedInstance {
     static MULoginModel *sInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -20,7 +21,11 @@
 }
 
 - (BOOL)isEverLogin {
-    return NO;
+    return [GlobalConfigModel getBOOLConfigWithKey:kGlobalConfigModel_isEverLogin];
+}
+
+- (void)setIsEverLogin:(BOOL)isEverLogin {
+    [GlobalConfigModel setBOOLConfig:isEverLogin forKey:kGlobalConfigModel_isEverLogin];
 }
 
 @end

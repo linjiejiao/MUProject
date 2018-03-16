@@ -12,3 +12,5 @@
 "login_phone_number_placeholder" = "手机号码";
 "login_password_placeholder" = "密码";
 "login_corfirm" = "登录";
+"login_forget_password" = "忘记密码？";
+"login_register_button" = "快速注册";

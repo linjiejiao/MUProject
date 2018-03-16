@@ -14,6 +14,7 @@
 
 #import <YYKit/YYKit.h>
 #import "Masonry.h"
+#import "UIDevice+YYAdd.h"
 
 #define IOS3_OR_LATER   SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"3.0")
 #define IOS4_OR_LATER    SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"4.0")
@@ -26,6 +27,14 @@
 #define IOS9_3_OR_LATER    SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.3")
 #define IOS10_OR_LATER  SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")
 #define IOS11_OR_LATER  SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11.0")
+
+#define iPhoneX [[[UIDevice currentDevice] machineModel] hasPrefix:@"iPhone10,"]
+
+#define StatusBarHeight (iPhoneX ? 44:0)
+
+#define PortraitSafeTopInset (iPhoneX ? 44:0)
+
+#define PortraitSafeBottomInset (iPhoneX ? 34:0)
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 

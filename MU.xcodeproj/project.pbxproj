@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7278C310205BB92400606A2B /* GlobalConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7278C30F205BB92400606A2B /* GlobalConfigModel.m */; };
+		7278C313205BC19300606A2B /* MURegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7278C312205BC19300606A2B /* MURegisterViewController.m */; };
+		7278C316205BC4BC00606A2B /* MUNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7278C315205BC4BC00606A2B /* MUNavigationView.m */; };
+		7278C319205BD37400606A2B /* MUBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7278C318205BD37400606A2B /* MUBaseViewController.m */; };
+		7278C31B205BE06200606A2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7278C31A205BE06200606A2B /* Assets.xcassets */; };
 		72DC1E1E2043A1460073A205 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DC1E1D2043A1460073A205 /* AppDelegate.m */; };
-		72DC1E292043A1460073A205 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72DC1E282043A1460073A205 /* Assets.xcassets */; };
 		72DC1E2C2043A1460073A205 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72DC1E2A2043A1460073A205 /* LaunchScreen.storyboard */; };
 		72DC1E2F2043A1460073A205 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DC1E2E2043A1460073A205 /* main.m */; };
 		72DC1E702043F3180073A205 /* ToastAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DC1E622043F3180073A205 /* ToastAlertView.m */; };
@@ -28,10 +32,18 @@
 /* Begin PBXFileReference section */
 		1D53776C2A811FFFCC9AC2F2 /* libPods-MU.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MU.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39EEEC45D970FCD2CDF11E2A /* Pods-MU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MU/Pods-MU.debug.xcconfig"; sourceTree = "<group>"; };
+		7278C30E205BB92400606A2B /* GlobalConfigModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConfigModel.h; sourceTree = "<group>"; };
+		7278C30F205BB92400606A2B /* GlobalConfigModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalConfigModel.m; sourceTree = "<group>"; };
+		7278C311205BC19300606A2B /* MURegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MURegisterViewController.h; sourceTree = "<group>"; };
+		7278C312205BC19300606A2B /* MURegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MURegisterViewController.m; sourceTree = "<group>"; };
+		7278C314205BC4BC00606A2B /* MUNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUNavigationView.h; sourceTree = "<group>"; };
+		7278C315205BC4BC00606A2B /* MUNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUNavigationView.m; sourceTree = "<group>"; };
+		7278C317205BD37400606A2B /* MUBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBaseViewController.h; sourceTree = "<group>"; };
+		7278C318205BD37400606A2B /* MUBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBaseViewController.m; sourceTree = "<group>"; };
+		7278C31A205BE06200606A2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72DC1E192043A1460073A205 /* MU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72DC1E1C2043A1460073A205 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72DC1E1D2043A1460073A205 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		72DC1E282043A1460073A205 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72DC1E2B2043A1460073A205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72DC1E2D2043A1460073A205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72DC1E2E2043A1460073A205 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,11 +109,11 @@
 				72DC1E662043F3180073A205 /* Main */,
 				72DC1E1C2043A1460073A205 /* AppDelegate.h */,
 				72DC1E1D2043A1460073A205 /* AppDelegate.m */,
-				72DC1E282043A1460073A205 /* Assets.xcassets */,
 				72DC1E2A2043A1460073A205 /* LaunchScreen.storyboard */,
 				72DC1E2D2043A1460073A205 /* Info.plist */,
 				72DC1E2E2043A1460073A205 /* main.m */,
 				72DC1E8D204525240073A205 /* Resource */,
+				7278C31A205BE06200606A2B /* Assets.xcassets */,
 			);
 			path = MU;
 			sourceTree = "<group>";
@@ -119,6 +131,8 @@
 		72DC1E5F2043F3180073A205 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7278C30E205BB92400606A2B /* GlobalConfigModel.h */,
+				7278C30F205BB92400606A2B /* GlobalConfigModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +175,8 @@
 		72DC1E682043F3180073A205 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7278C314205BC4BC00606A2B /* MUNavigationView.h */,
+				7278C315205BC4BC00606A2B /* MUNavigationView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +184,8 @@
 		72DC1E692043F3180073A205 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7278C317205BD37400606A2B /* MUBaseViewController.h */,
+				7278C318205BD37400606A2B /* MUBaseViewController.m */,
 				72DC1E6B2043F3180073A205 /* AddDeviceViewController.h */,
 				72DC1E6D2043F3180073A205 /* AddDeviceViewController.m */,
 				72DC1E6F2043F3180073A205 /* DeviceListViewController.h */,
@@ -211,6 +229,8 @@
 			children = (
 				72DC1E8A204521720073A205 /* MULoginViewController.h */,
 				72DC1E8B204521720073A205 /* MULoginViewController.m */,
+				7278C311205BC19300606A2B /* MURegisterViewController.h */,
+				7278C312205BC19300606A2B /* MURegisterViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -306,8 +326,8 @@
 				72DC1E2C2043A1460073A205 /* LaunchScreen.storyboard in Resources */,
 				72DC1E97204533A00073A205 /* InfoPlist.strings in Resources */,
 				72DC1E9A204537C50073A205 /* xib.strings in Resources */,
-				72DC1E292043A1460073A205 /* Assets.xcassets in Resources */,
 				72DC1E9520452F980073A205 /* Localizable.strings in Resources */,
+				7278C31B205BE06200606A2B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,11 +389,15 @@
 				72DC1E1E2043A1460073A205 /* AppDelegate.m in Sources */,
 				72DC1E712043F3180073A205 /* BaseViewController.m in Sources */,
 				72DC1E732043F3180073A205 /* DeviceListViewController.m in Sources */,
+				7278C310205BB92400606A2B /* GlobalConfigModel.m in Sources */,
 				72DC1E742043F3180073A205 /* AddDeviceViewController.m in Sources */,
 				72DC1E722043F3180073A205 /* SettingsViewController.m in Sources */,
 				72DC1E9F20453B910073A205 /* MULoginModel.m in Sources */,
+				7278C313205BC19300606A2B /* MURegisterViewController.m in Sources */,
 				72DC1E8C204521720073A205 /* MULoginViewController.m in Sources */,
+				7278C319205BD37400606A2B /* MUBaseViewController.m in Sources */,
 				72DC1E792044034F0073A205 /* MainTabBarViewController.m in Sources */,
+				7278C316205BC4BC00606A2B /* MUNavigationView.m in Sources */,
 				72DC1E702043F3180073A205 /* ToastAlertView.m in Sources */,
 				72DC1E2F2043A1460073A205 /* main.m in Sources */,
 			);
