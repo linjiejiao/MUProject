@@ -11,6 +11,11 @@
 "company_name_en" = "Meiyou Technology";
 "login_phone_number_placeholder" = "手机号码";
 "login_password_placeholder" = "密码";
+"login_password_confirm_placeholder" = "确认密码";
+"login_pin_code_placeholder" = "验证码";
+"login_send_pin_code" = "发送验证码";
 "login_corfirm" = "登录";
 "login_forget_password" = "忘记密码？";
 "login_register_button" = "快速注册";
+"register_corfirm" = "注册";
+"register_goto_login" = "已有账号，登录";

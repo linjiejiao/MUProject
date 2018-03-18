@@ -6,9 +6,9 @@
 //  Copyright © 2018年 liang jiajian. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "MUBaseViewController.h"
 
-@interface DeviceListViewController : BaseViewController
+@interface DeviceListViewController : MUBaseViewController
 
 
 @end

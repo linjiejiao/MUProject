@@ -86,9 +86,10 @@
     }];
 
     UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    loginButton.frame = CGRectMake(30, CGRectGetMaxY(password.frame) + 30, ScreenWidth - 60, 35);
+    loginButton.frame = CGRectMake(30, CGRectGetMaxY(password.frame) + 30, ScreenWidth - 60, 45);
     loginButton.layer.masksToBounds = YES;
-    loginButton.layer.cornerRadius = 5;
+    loginButton.layer.cornerRadius = 22.5;
+    loginButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [loginButton setBackgroundImage:[UIImage imageWithColor:UIColor.whiteColor] forState:UIControlStateNormal];
     [loginButton setTitleColor:[UIColor colorWithRGB:0x008afd] forState:UIControlStateNormal];
     [loginButton setTitle:NSLocalizedString(@"login_corfirm", nil) forState:UIControlStateNormal];

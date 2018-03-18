@@ -107,6 +107,8 @@
         make.centerX.equalTo(self.mas_centerX);
         make.bottom.equalTo(self.mas_bottom);
         make.height.mas_equalTo(44);
+        make.leading.greaterThanOrEqualTo(self.mas_leading).offset(44);
+        make.trailing.lessThanOrEqualTo(self.mas_trailing).offset(-44);
     }];
     if(_titleView){
         [_titleView removeFromSuperview];

@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
     self.navigationView = [[MUNavigationView alloc] init];
     self.navigationView.delegate = self;
     [self.view addSubview:self.navigationView];
