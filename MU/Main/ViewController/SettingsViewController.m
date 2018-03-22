@@ -19,4 +19,19 @@
     [self setNaviBarLeftBtn:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 185.0f, 44)];
+    titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    titleLabel.text = NSLocalizedString(@"Settings", nil);
+    titleLabel.textColor = [UIColor whiteColor];
+    [titleLabel sizeToFit];
+    self.tabBarController.navigationItem.titleView = titleLabel;
+}
+
+// 用tabBarController的navigationController push新界面，否则底部tabBar会一直显示
+- (UINavigationController *)navigationController {
+    return self.tabBarController.navigationController;
+}
+
 @end

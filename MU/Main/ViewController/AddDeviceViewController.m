@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNaviBarLeftBtn:nil];
+    self.title = NSLocalizedString(@"add_device_title", nil);
 }
 
 @end

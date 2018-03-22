@@ -19,3 +19,5 @@
 "login_register_button" = "快速注册";
 "register_corfirm" = "注册";
 "register_goto_login" = "已有账号，登录";
+"device_list_title" = "所有设备";
+"add_device_title" = "添加设备";

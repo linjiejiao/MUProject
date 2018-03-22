@@ -65,7 +65,20 @@
 - (void)showMainViewController {
     MainTabBarViewController *vc = [[MainTabBarViewController alloc] init];
     UINavigationController *rootNavigation = [[UINavigationController alloc] initWithRootViewController:vc];
-    rootNavigation.navigationBarHidden = YES;
+    rootNavigation.navigationBar.tintColor = UIColor.whiteColor;
+    CAGradientLayer *gradientLayer = [[CAGradientLayer alloc] init];
+    gradientLayer.frame = rootNavigation.navigationBar.bounds;
+    gradientLayer.locations = @[@0, @1.f];
+    gradientLayer.startPoint = CGPointMake(0, 0);
+    gradientLayer.endPoint = CGPointMake(1.0, 0);
+    gradientLayer.colors = @[(__bridge id)[UIColor colorWithRGB:0x00bcfb].CGColor,
+                             (__bridge id)[UIColor colorWithRGB:0x008dfa].CGColor];
+    UIGraphicsBeginImageContextWithOptions(gradientLayer.frame.size, YES, 0);
+    [gradientLayer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    [rootNavigation.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     self.window.rootViewController = rootNavigation;
 }
 

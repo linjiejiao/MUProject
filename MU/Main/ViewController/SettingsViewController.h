@@ -6,9 +6,9 @@
 //  Copyright © 2018年 liang jiajian. All rights reserved.
 //
 
-#import "MUBaseViewController.h"
+#import "BaseViewController.h"
 
-@interface SettingsViewController : MUBaseViewController
+@interface SettingsViewController : BaseViewController
 
 
 @end
