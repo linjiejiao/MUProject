@@ -9,6 +9,10 @@
 #import "AddDeviceViewController.h"
 
 @interface AddDeviceViewController ()
+@property (strong, nonatomic) UILabel *stepIndecator1;
+@property (strong, nonatomic) UILabel *stepIndecator2;
+@property (strong, nonatomic) UILabel *stepIndecator3;
+@property (strong, nonatomic) UILabel *stepIndecator4;
 
 @end
 

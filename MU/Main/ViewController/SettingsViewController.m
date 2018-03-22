@@ -27,6 +27,7 @@
     titleLabel.textColor = [UIColor whiteColor];
     [titleLabel sizeToFit];
     self.tabBarController.navigationItem.titleView = titleLabel;
+    self.tabBarController.navigationItem.rightBarButtonItems = nil;
 }
 
 // 用tabBarController的navigationController push新界面，否则底部tabBar会一直显示

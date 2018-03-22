@@ -72,6 +72,7 @@
     [self.deviceNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.switchButton.mas_trailing).offset(10);
         make.centerY.equalTo(self.backgroundContaincer.mas_centerY);
+        make.trailing.lessThanOrEqualTo(self.backgroundContaincer.mas_trailing).offset(-30);
     }];
 
     self.deviceTimerIcon = [[UIImageView alloc] init];

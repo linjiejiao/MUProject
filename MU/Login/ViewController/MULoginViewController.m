@@ -32,7 +32,6 @@
     [self.view.layer addSublayer:gradientLayer];
 
     self.scrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.scrollView.contentSize = [UIScreen mainScreen].bounds.size;
     if(IOS11_OR_LATER){
         self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
@@ -122,6 +121,8 @@
         make.trailing.equalTo(loginButton.mas_trailing);
         make.width.mas_equalTo(gegisterButton.frame.size.width + 10);
     }];
+    [self.scrollView layoutSubviews];
+    self.scrollView.contentSize = CGSizeMake(ScreenWidth, CGRectGetMaxY(gegisterButton.frame) + 10);
 }
 
 - (void)viewDidAppear:(BOOL)animated {

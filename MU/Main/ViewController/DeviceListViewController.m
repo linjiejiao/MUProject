@@ -51,6 +51,15 @@
     titleLabel.textColor = [UIColor whiteColor];
     [titleLabel sizeToFit];
     self.tabBarController.navigationItem.titleView = titleLabel;
+    UIButton *rightButton = [[UIButton alloc] init];
+    [rightButton setImage:[UIImage imageNamed:@"icon_more_option"] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(handleNavigationRightClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    int margin = -6;
+    negativeSpacer.width = margin;
+    self.tabBarController.navigationItem.rightBarButtonItems = nil;
+    [self.tabBarController.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:negativeSpacer, rightBtnItem, nil]];
 }
 
 // 用tabBarController的navigationController push新界面，否则底部tabBar会一直显示

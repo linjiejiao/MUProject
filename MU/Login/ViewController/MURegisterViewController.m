@@ -31,7 +31,6 @@
     [self.view.layer addSublayer:gradientLayer];
 
     self.scrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.scrollView.contentSize = [UIScreen mainScreen].bounds.size;
     if(IOS11_OR_LATER){
         self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
@@ -143,6 +142,8 @@
     loginButton.frame = CGRectMake((ScreenWidth - buttonWidth)/2, CGRectGetMaxY(registerButton.frame) + 30, buttonWidth, 35);
     [loginButton addTarget:self action:@selector(loginClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:loginButton];
+    [self.scrollView layoutSubviews];
+    self.scrollView.contentSize = CGSizeMake(ScreenWidth, CGRectGetMaxY(loginButton.frame) + 10);
 }
 
 
