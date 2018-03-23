@@ -21,3 +21,11 @@
 "register_goto_login" = "已有账号，登录";
 "device_list_title" = "所有设备";
 "add_device_title" = "添加设备";
+"add_device_step1_title" = "确认进入配对状态";
+"add_device_step1_description" = "1.长按配对按钮，保持5秒左右；\n2.状态灯熄灭，配置灯呼吸闪烁，则设备进入配对状态";
+"add_device_step2_title" = "为设备联网选择一个WIFI";
+"add_device_step2_description" = "1.请输入无线网络名称和密码；\n2.仅支持2.4G网络";
+"add_device_step3_title" = "正在入配";
+"add_device_step4_title" = "命名设备";
+"add_device_failed" = "配对失败";
+"button_next_step" = "下一步";

@@ -29,6 +29,8 @@
 		72DC1E97204533A00073A205 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72DC1E96204533A00073A205 /* InfoPlist.strings */; };
 		72DC1E9A204537C50073A205 /* xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72DC1E99204537C50073A205 /* xib.strings */; };
 		72DC1E9F20453B910073A205 /* MULoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DC1E9E20453B910073A205 /* MULoginModel.m */; };
+		8B26E049206537A700B7F2B1 /* MUAddDeviceStep1View.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E048206537A700B7F2B1 /* MUAddDeviceStep1View.m */; };
+		8B26E04C2065564300B7F2B1 /* MUAddDeviceStep2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E04B2065564300B7F2B1 /* MUAddDeviceStep2View.m */; };
 		8FECDCF94AF0A6D2DF91A4F1 /* libPods-MU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D53776C2A811FFFCC9AC2F2 /* libPods-MU.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,10 @@
 		72DC1E99204537C50073A205 /* xib.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = xib.strings; sourceTree = "<group>"; };
 		72DC1E9D20453B910073A205 /* MULoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MULoginModel.h; sourceTree = "<group>"; };
 		72DC1E9E20453B910073A205 /* MULoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MULoginModel.m; sourceTree = "<group>"; };
+		8B26E047206537A700B7F2B1 /* MUAddDeviceStep1View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUAddDeviceStep1View.h; sourceTree = "<group>"; };
+		8B26E048206537A700B7F2B1 /* MUAddDeviceStep1View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUAddDeviceStep1View.m; sourceTree = "<group>"; };
+		8B26E04A2065564300B7F2B1 /* MUAddDeviceStep2View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUAddDeviceStep2View.h; sourceTree = "<group>"; };
+		8B26E04B2065564300B7F2B1 /* MUAddDeviceStep2View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUAddDeviceStep2View.m; sourceTree = "<group>"; };
 		C32C35A3D403BB6A1CA723A1 /* Pods-MU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MU.release.xcconfig"; path = "Pods/Target Support Files/Pods-MU/Pods-MU.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,8 +121,14 @@
 		7263DCA32062742F00B4121B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7263DCB12065019400B4121B /* MUStepIndecatorView.h */,
+				7263DCB22065019400B4121B /* MUStepIndecatorView.m */,
 				7263DCA52062755500B4121B /* MUDeviceCollectionViewCell.h */,
 				7263DCA62062755500B4121B /* MUDeviceCollectionViewCell.m */,
+				8B26E047206537A700B7F2B1 /* MUAddDeviceStep1View.h */,
+				8B26E048206537A700B7F2B1 /* MUAddDeviceStep1View.m */,
+				8B26E04A2065564300B7F2B1 /* MUAddDeviceStep2View.h */,
+				8B26E04B2065564300B7F2B1 /* MUAddDeviceStep2View.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,8 +236,6 @@
 		72DC1E682043F3180073A205 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7263DCB12065019400B4121B /* MUStepIndecatorView.h */,
-				7263DCB22065019400B4121B /* MUStepIndecatorView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -445,7 +455,9 @@
 				72DC1E9F20453B910073A205 /* MULoginModel.m in Sources */,
 				7278C313205BC19300606A2B /* MURegisterViewController.m in Sources */,
 				7263DCA72062755500B4121B /* MUDeviceCollectionViewCell.m in Sources */,
+				8B26E049206537A700B7F2B1 /* MUAddDeviceStep1View.m in Sources */,
 				72DC1E8C204521720073A205 /* MULoginViewController.m in Sources */,
+				8B26E04C2065564300B7F2B1 /* MUAddDeviceStep2View.m in Sources */,
 				72DC1E792044034F0073A205 /* MainTabBarViewController.m in Sources */,
 				72DC1E702043F3180073A205 /* ToastAlertView.m in Sources */,
 				7263DCB02063A0E900B4121B /* MUDevicesDataSource.m in Sources */,

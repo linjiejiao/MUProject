@@ -13,10 +13,18 @@ typedef NS_ENUM(NSUInteger, MUDeviceItemStatus) {
     MUDeviceItemStatus_Off,
 };
 
+typedef NS_ENUM(NSUInteger, MUDeviceItemType) {
+    MUDeviceItemType_Touch,
+    MUDeviceItemType_AP,
+    MUDeviceItemType_GSMDevice,
+    MUDeviceItemType_Count,
+};
+
 @interface MUDeviceItem : NSObject
 @property (assign, nonatomic) int deviceId;
 @property (copy, nonatomic) NSString *name;
 @property (assign, nonatomic) MUDeviceItemStatus status;
+@property (assign, nonatomic) MUDeviceItemType type;
 @property (assign, nonatomic) BOOL hasTimer;
 
 @end
