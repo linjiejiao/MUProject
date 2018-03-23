@@ -11,6 +11,7 @@
 		7263DCAA20635BCD00B4121B /* BaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7263DCA920635BCD00B4121B /* BaseCollectionViewCell.m */; };
 		7263DCAD20639DFC00B4121B /* MUDeviceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7263DCAC20639DFC00B4121B /* MUDeviceItem.m */; };
 		7263DCB02063A0E900B4121B /* MUDevicesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7263DCAF2063A0E900B4121B /* MUDevicesDataSource.m */; };
+		7263DCB32065019400B4121B /* MUStepIndecatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7263DCB22065019400B4121B /* MUStepIndecatorView.m */; };
 		7278C310205BB92400606A2B /* GlobalConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7278C30F205BB92400606A2B /* GlobalConfigModel.m */; };
 		7278C313205BC19300606A2B /* MURegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7278C312205BC19300606A2B /* MURegisterViewController.m */; };
 		7278C31B205BE06200606A2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7278C31A205BE06200606A2B /* Assets.xcassets */; };
@@ -42,6 +43,8 @@
 		7263DCAC20639DFC00B4121B /* MUDeviceItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUDeviceItem.m; sourceTree = "<group>"; };
 		7263DCAE2063A0E900B4121B /* MUDevicesDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUDevicesDataSource.h; sourceTree = "<group>"; };
 		7263DCAF2063A0E900B4121B /* MUDevicesDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUDevicesDataSource.m; sourceTree = "<group>"; };
+		7263DCB12065019400B4121B /* MUStepIndecatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUStepIndecatorView.h; sourceTree = "<group>"; };
+		7263DCB22065019400B4121B /* MUStepIndecatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUStepIndecatorView.m; sourceTree = "<group>"; };
 		7278C30E205BB92400606A2B /* GlobalConfigModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConfigModel.h; sourceTree = "<group>"; };
 		7278C30F205BB92400606A2B /* GlobalConfigModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalConfigModel.m; sourceTree = "<group>"; };
 		7278C311205BC19300606A2B /* MURegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MURegisterViewController.h; sourceTree = "<group>"; };
@@ -221,6 +224,8 @@
 		72DC1E682043F3180073A205 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7263DCB12065019400B4121B /* MUStepIndecatorView.h */,
+				7263DCB22065019400B4121B /* MUStepIndecatorView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 				72DC1E732043F3180073A205 /* DeviceListViewController.m in Sources */,
 				7278C310205BB92400606A2B /* GlobalConfigModel.m in Sources */,
 				7263DCAD20639DFC00B4121B /* MUDeviceItem.m in Sources */,
+				7263DCB32065019400B4121B /* MUStepIndecatorView.m in Sources */,
 				72DC1E742043F3180073A205 /* AddDeviceViewController.m in Sources */,
 				7263DCAA20635BCD00B4121B /* BaseCollectionViewCell.m in Sources */,
 				72DC1E722043F3180073A205 /* SettingsViewController.m in Sources */,
