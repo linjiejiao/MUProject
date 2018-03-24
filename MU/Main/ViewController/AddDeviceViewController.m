@@ -10,12 +10,17 @@
 #import "MUStepIndecatorView.h"
 #import "MUAddDeviceStep1View.h"
 #import "MUAddDeviceStep2View.h"
+#import "MUAddDeviceStep3View.h"
+#import "MUAddDeviceStep4View.h"
 
 @interface AddDeviceViewController ()
 @property (strong, nonatomic) MUStepIndecatorView *stepIndecatorView;
 @property (strong, nonatomic) MUAddDeviceStep1View *step1View;
 @property (strong, nonatomic) MUAddDeviceStep2View *step2View;
+@property (strong, nonatomic) MUAddDeviceStep3View *step3View;
+@property (strong, nonatomic) MUAddDeviceStep4View *step4View;
 @property (strong, nonatomic) UIButton *bottomButton;
+@property (assign, nonatomic) NSUInteger stepIndex;
 
 @end
 
@@ -24,7 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"add_device_title", nil);
+    self.stepIndex = 0;
     [self setupViews];
+    [self enterStep:self.stepIndex];
 }
 
 - (void)setupViews {
@@ -35,7 +42,6 @@
         make.top.equalTo(self.view.mas_top).offset(25);
         make.size.mas_equalTo(self.stepIndecatorView.bounds.size);
     }];
-    [self.stepIndecatorView heightlightStepIndecatorAtIndex:0];
 
     self.bottomButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.bottomButton.layer.masksToBounds = YES;
@@ -68,13 +74,60 @@
         make.top.equalTo(self.stepIndecatorView.mas_bottom);
         make.bottom.equalTo(self.bottomButton.mas_top).offset(-5);
     }];
-    self.step2View.hidden = YES;
+
+    self.step3View = [[MUAddDeviceStep3View alloc] init];
+    [self.view addSubview:self.step3View];
+    [self.step3View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.equalTo(self.view);
+        make.top.equalTo(self.stepIndecatorView.mas_bottom);
+        make.bottom.equalTo(self.bottomButton.mas_top).offset(-5);
+    }];
+
+    self.step4View = [[MUAddDeviceStep4View alloc] init];
+    [self.view addSubview:self.step4View];
+    [self.step4View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.equalTo(self.view);
+        make.top.equalTo(self.stepIndecatorView.mas_bottom);
+        make.bottom.equalTo(self.bottomButton.mas_top).offset(-5);
+    }];
 }
 
 - (void)handleBottomButtonClicked:(UIButton *)button {
-    [self.stepIndecatorView heightlightStepIndecatorAtIndex:1];
-    self.step2View.hidden = NO;
-    self.step1View.hidden = YES;
+    self.stepIndex++;
+    if(self.stepIndex > 3){
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+    [self enterStep:self.stepIndex];
+}
+
+- (void)enterStep:(NSUInteger)stepIndex {
+    [self.stepIndecatorView heightlightStepIndecatorAtIndex:stepIndex];
+    if(stepIndex == 0){
+        self.step1View.hidden = NO;
+        self.step2View.hidden = YES;
+        self.step3View.hidden = YES;
+        self.step4View.hidden = YES;
+        [self.bottomButton setTitle:NSLocalizedString(@"button_next_step", nil) forState:UIControlStateNormal];
+    }else if(stepIndex == 1){
+        self.step1View.hidden = YES;
+        self.step2View.hidden = NO;
+        self.step3View.hidden = YES;
+        self.step4View.hidden = YES;
+        [self.bottomButton setTitle:NSLocalizedString(@"button_next_step", nil) forState:UIControlStateNormal];
+    }else if(stepIndex == 2){
+        self.step1View.hidden = YES;
+        self.step2View.hidden = YES;
+        self.step3View.hidden = NO;
+        self.step4View.hidden = YES;
+        [self.bottomButton setTitle:NSLocalizedString(@"button_cancel", nil) forState:UIControlStateNormal];
+    }else if(stepIndex == 3){
+        self.step1View.hidden = YES;
+        self.step2View.hidden = YES;
+        self.step3View.hidden = YES;
+        self.step4View.hidden = NO;
+        [self.bottomButton setTitle:NSLocalizedString(@"button_finish", nil) forState:UIControlStateNormal];
+    }
 }
 
 @end

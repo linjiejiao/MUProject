@@ -8,6 +8,12 @@
 
 #import "MUAddDeviceStep2View.h"
 
+@interface MUAddDeviceStep2View ()
+@property (strong, nonatomic) UITextField *ssidTextField;
+@property (strong, nonatomic) UITextField *passwordTextField;
+
+@end
+
 @implementation MUAddDeviceStep2View
 
 - (instancetype)init {
@@ -38,14 +44,60 @@
         make.top.equalTo(titleLabel.mas_bottom).offset(20);
         make.centerX.equalTo(self.mas_centerX);
     }];
+    UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.image = [UIImage imageNamed:@"img_add_device_config_wifi"];
+    [self addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(descriptionLabel.mas_bottom).offset(20);
+        make.centerX.equalTo(self.mas_centerX);
+    }];
+    UITextField *wifiSSID = [[UITextField alloc] init];
+    wifiSSID.placeholder = NSLocalizedString(@"config_wifi_ssid_placeholder", nil);
+    [self addSubview:wifiSSID];
+    [wifiSSID mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.mas_leading).offset(20);
+        make.trailing.equalTo(self.mas_trailing).offset(-20);
+        make.top.equalTo(imageView.mas_bottom).offset(15);
+        make.height.mas_equalTo(21);
+    }];
+    self.ssidTextField = wifiSSID;
+
+    UIView *inputBottomLine = [[UIView alloc] init];
+    inputBottomLine.backgroundColor = [UIColor colorWithRGB:0x656565];
+    [self addSubview:inputBottomLine];
+    [inputBottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.equalTo(wifiSSID);
+        make.top.equalTo(wifiSSID.mas_bottom);
+        make.height.mas_equalTo(1);
+    }];
+
+    UITextField *wifiPassword = [[UITextField alloc] init];
+    wifiPassword.placeholder = NSLocalizedString(@"config_wifi_password_placeholder", nil);
+    [self addSubview:wifiPassword];
+    [wifiPassword mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.mas_leading).offset(20);
+        make.trailing.equalTo(self.mas_trailing).offset(-20);
+        make.top.equalTo(wifiSSID.mas_bottom).offset(30);
+        make.height.mas_equalTo(21);
+    }];
+    self.passwordTextField = wifiPassword;
+
+    inputBottomLine = [[UIView alloc] init];
+    inputBottomLine.backgroundColor = [UIColor colorWithRGB:0x656565];
+    [self addSubview:inputBottomLine];
+    [inputBottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.equalTo(wifiPassword);
+        make.top.equalTo(wifiPassword.mas_bottom);
+        make.height.mas_equalTo(1);
+    }];
 }
 
 - (NSString *)wifiSSID {
-    return nil;
+    return self.ssidTextField.text;
 }
 
 - (NSString *)wifiPassword {
-    return nil;
+    return self.passwordTextField.text;
 }
 
 @end
