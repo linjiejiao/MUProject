@@ -72,14 +72,14 @@
     [self.deviceNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.switchButton.mas_trailing).offset(10);
         make.centerY.equalTo(self.backgroundContaincer.mas_centerY);
-        make.trailing.lessThanOrEqualTo(self.backgroundContaincer.mas_trailing).offset(-30);
+        make.trailing.lessThanOrEqualTo(self.backgroundContaincer.mas_trailing).offset(-40);
     }];
 
     self.deviceTimerIcon = [[UIImageView alloc] init];
     self.deviceTimerIcon.image = [UIImage imageNamed:@"icon_timer"];
     [self.backgroundContaincer addSubview:self.deviceTimerIcon];
     [self.deviceTimerIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.deviceNameLabel.mas_trailing).offset(10);
+        make.leading.equalTo(self.deviceNameLabel.mas_trailing).offset(5);
         make.centerY.equalTo(self.backgroundContaincer.mas_centerY);
     }];
 

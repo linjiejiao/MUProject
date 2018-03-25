@@ -53,7 +53,7 @@
     [self.bottomButton addTarget:self action:@selector(handleBottomButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.bottomButton];
     [self.bottomButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view.mas_bottom).offset(-70);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-30);
         make.leading.equalTo(self.view.mas_leading).offset(20);
         make.trailing.equalTo(self.view.mas_trailing).offset(-20);
         make.height.mas_equalTo(44);

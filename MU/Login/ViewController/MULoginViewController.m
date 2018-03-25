@@ -59,7 +59,7 @@
     companyNameEn.textAlignment = NSTextAlignmentCenter;
     [self.scrollView addSubview:companyNameEn];
 
-    UITextField *phoneNumber = [[UITextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(companyNameEn.frame) + 130, ScreenWidth - 60, 21)];
+    UITextField *phoneNumber = [[UITextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(companyNameEn.frame) + 60, ScreenWidth - 60, 21)];
     phoneNumber.placeholder = NSLocalizedString(@"login_phone_number_placeholder", nil);
     [self.scrollView addSubview:phoneNumber];
 
