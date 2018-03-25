@@ -34,6 +34,7 @@
 		8B26E04F2066919A00B7F2B1 /* MUAddDeviceStep3View.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E04E2066919A00B7F2B1 /* MUAddDeviceStep3View.m */; };
 		8B26E052206693B700B7F2B1 /* MUAddDeviceStep4View.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E051206693B700B7F2B1 /* MUAddDeviceStep4View.m */; };
 		8B26E0552067ABC000B7F2B1 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E0542067ABC000B7F2B1 /* BaseWebViewController.m */; };
+		8B26E05C2067FCF800B7F2B1 /* MUFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E05B2067FCF800B7F2B1 /* MUFeedbackViewController.m */; };
 		8FECDCF94AF0A6D2DF91A4F1 /* libPods-MU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D53776C2A811FFFCC9AC2F2 /* libPods-MU.a */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,8 @@
 		8B26E051206693B700B7F2B1 /* MUAddDeviceStep4View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUAddDeviceStep4View.m; sourceTree = "<group>"; };
 		8B26E0532067ABC000B7F2B1 /* BaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		8B26E0542067ABC000B7F2B1 /* BaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
+		8B26E05A2067FCF800B7F2B1 /* MUFeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUFeedbackViewController.h; sourceTree = "<group>"; };
+		8B26E05B2067FCF800B7F2B1 /* MUFeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUFeedbackViewController.m; sourceTree = "<group>"; };
 		C32C35A3D403BB6A1CA723A1 /* Pods-MU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MU.release.xcconfig"; path = "Pods/Target Support Files/Pods-MU/Pods-MU.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +182,7 @@
 				72DC1E762043FB710073A205 /* PrefixHeader.pch */,
 				72DC1E5E2043F3180073A205 /* Base */,
 				72DC1E662043F3180073A205 /* Main */,
+				8B26E0562067FCAE00B7F2B1 /* Settings */,
 				72DC1E1C2043A1460073A205 /* AppDelegate.h */,
 				72DC1E1D2043A1460073A205 /* AppDelegate.m */,
 				72DC1E2A2043A1460073A205 /* LaunchScreen.storyboard */,
@@ -326,6 +330,39 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8B26E0562067FCAE00B7F2B1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8B26E0592067FCDD00B7F2B1 /* ViewController */,
+				8B26E0582067FCD100B7F2B1 /* Model */,
+				8B26E0572067FCBF00B7F2B1 /* View */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		8B26E0572067FCBF00B7F2B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B26E0582067FCD100B7F2B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B26E0592067FCDD00B7F2B1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8B26E05A2067FCF800B7F2B1 /* MUFeedbackViewController.h */,
+				8B26E05B2067FCF800B7F2B1 /* MUFeedbackViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		BA41AF56C1FB589621CC9B2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +504,7 @@
 				72DC1E742043F3180073A205 /* AddDeviceViewController.m in Sources */,
 				7263DCAA20635BCD00B4121B /* BaseCollectionViewCell.m in Sources */,
 				72DC1E722043F3180073A205 /* SettingsViewController.m in Sources */,
+				8B26E05C2067FCF800B7F2B1 /* MUFeedbackViewController.m in Sources */,
 				72DC1E9F20453B910073A205 /* MULoginModel.m in Sources */,
 				8B26E04F2066919A00B7F2B1 /* MUAddDeviceStep3View.m in Sources */,
 				7278C313205BC19300606A2B /* MURegisterViewController.m in Sources */,

@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "MULoginModel.h"
 #import "BaseWebViewController.h"
+#import "MUFeedbackViewController.h"
 
 typedef NS_ENUM(NSUInteger, SettingItemIndex) {
     SettingItemIndex_Feedback = 0,
@@ -154,15 +155,17 @@ typedef NS_ENUM(NSUInteger, SettingItemIndex) {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row){
-        case SettingItemIndex_Feedback:
-            break;
-        case SettingItemIndex_ChangeNickName:
-            break;
-        case SettingItemIndex_ChangePassword:
-            break;
-        case SettingItemIndex_AboutUs:
+        case SettingItemIndex_Feedback:{
+            MUFeedbackViewController *feedbackViewController = [[MUFeedbackViewController alloc] init];
+            [self.navigationController pushViewController:feedbackViewController animated:YES];
+        }break;
+        case SettingItemIndex_ChangeNickName:{
+        }break;
+        case SettingItemIndex_ChangePassword:{
+        }break;
+        case SettingItemIndex_AboutUs:{
             [BaseWebViewController showWithUrl:@"http://www.baidu.com" from:self];
-            break;
+        }break;
     }
 }
 

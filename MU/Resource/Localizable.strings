@@ -35,6 +35,7 @@
 "button_cancel" = "取消";
 "button_finish" = "完成";
 "button_logout" = "退出登录";
+"button_summit" = "提交";
 "config_wifi_ssid_placeholder" = "网络名称";
 "config_wifi_password_placeholder" = "WIFI密码";
 "rename_device_placeholder" = "我的设备MU03";
@@ -43,3 +44,8 @@
 "settings_change_nickneme" = "修改昵称";
 "settings_change_password" = "修改密码";
 "settings_about_us" = "关于我们";
+
+"feedback_description" = "请填写联系方式，方便我们联系您解决问题和跟进您的反馈";
+"feedback_contact_placeholder" = "联系方式";
+"feedback_content_placeholder" = "描述您的反馈";
+
