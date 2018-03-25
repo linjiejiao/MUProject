@@ -42,6 +42,9 @@
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    if(IOS11_OR_LATER){
+        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
     self.collectionView.delegate = self;
     self.devicesDataSource = [[MUDevicesDataSource alloc] init];
     self.collectionView.dataSource = self.devicesDataSource;

@@ -33,6 +33,7 @@
 		8B26E04C2065564300B7F2B1 /* MUAddDeviceStep2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E04B2065564300B7F2B1 /* MUAddDeviceStep2View.m */; };
 		8B26E04F2066919A00B7F2B1 /* MUAddDeviceStep3View.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E04E2066919A00B7F2B1 /* MUAddDeviceStep3View.m */; };
 		8B26E052206693B700B7F2B1 /* MUAddDeviceStep4View.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E051206693B700B7F2B1 /* MUAddDeviceStep4View.m */; };
+		8B26E0552067ABC000B7F2B1 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E0542067ABC000B7F2B1 /* BaseWebViewController.m */; };
 		8FECDCF94AF0A6D2DF91A4F1 /* libPods-MU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D53776C2A811FFFCC9AC2F2 /* libPods-MU.a */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,8 @@
 		8B26E04E2066919A00B7F2B1 /* MUAddDeviceStep3View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUAddDeviceStep3View.m; sourceTree = "<group>"; };
 		8B26E050206693B700B7F2B1 /* MUAddDeviceStep4View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUAddDeviceStep4View.h; sourceTree = "<group>"; };
 		8B26E051206693B700B7F2B1 /* MUAddDeviceStep4View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUAddDeviceStep4View.m; sourceTree = "<group>"; };
+		8B26E0532067ABC000B7F2B1 /* BaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
+		8B26E0542067ABC000B7F2B1 /* BaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		C32C35A3D403BB6A1CA723A1 /* Pods-MU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MU.release.xcconfig"; path = "Pods/Target Support Files/Pods-MU/Pods-MU.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -222,6 +225,8 @@
 			children = (
 				72DC1E652043F3180073A205 /* BaseViewController.h */,
 				72DC1E642043F3180073A205 /* BaseViewController.m */,
+				8B26E0532067ABC000B7F2B1 /* BaseWebViewController.h */,
+				8B26E0542067ABC000B7F2B1 /* BaseWebViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				8B26E04C2065564300B7F2B1 /* MUAddDeviceStep2View.m in Sources */,
 				72DC1E792044034F0073A205 /* MainTabBarViewController.m in Sources */,
 				72DC1E702043F3180073A205 /* ToastAlertView.m in Sources */,
+				8B26E0552067ABC000B7F2B1 /* BaseWebViewController.m in Sources */,
 				8B26E052206693B700B7F2B1 /* MUAddDeviceStep4View.m in Sources */,
 				7263DCB02063A0E900B4121B /* MUDevicesDataSource.m in Sources */,
 				72DC1E2F2043A1460073A205 /* main.m in Sources */,
@@ -606,7 +612,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MU/PrefixHeader.pch";
 				INFOPLIST_FILE = MU/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.ljj.test.MU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -625,7 +631,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MU/PrefixHeader.pch";
 				INFOPLIST_FILE = MU/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.ljj.test.MU;
 				PRODUCT_NAME = "$(TARGET_NAME)";

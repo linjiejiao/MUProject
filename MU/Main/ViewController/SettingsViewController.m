@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "AppDelegate.h"
 #import "MULoginModel.h"
+#import "BaseWebViewController.h"
 
 typedef NS_ENUM(NSUInteger, SettingItemIndex) {
     SettingItemIndex_Feedback = 0,
@@ -160,6 +161,7 @@ typedef NS_ENUM(NSUInteger, SettingItemIndex) {
         case SettingItemIndex_ChangePassword:
             break;
         case SettingItemIndex_AboutUs:
+            [BaseWebViewController showWithUrl:@"http://www.baidu.com" from:self];
             break;
     }
 }
