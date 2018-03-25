@@ -34,6 +34,12 @@
 "button_next_step" = "下一步";
 "button_cancel" = "取消";
 "button_finish" = "完成";
+"button_logout" = "退出登录";
 "config_wifi_ssid_placeholder" = "网络名称";
 "config_wifi_password_placeholder" = "WIFI密码";
 "rename_device_placeholder" = "我的设备MU03";
+
+"settings_feedback" = "意见反馈";
+"settings_change_nickneme" = "修改昵称";
+"settings_change_password" = "修改密码";
+"settings_about_us" = "关于我们";

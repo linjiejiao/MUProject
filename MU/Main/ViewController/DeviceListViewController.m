@@ -21,7 +21,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self.navigationView setupRightButtonWithNormalImage:[UIImage imageNamed:@"icon_more_option"] selectedImage:nil];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 185.0f, 44)];
+    titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    titleLabel.text = NSLocalizedString(@"device_list_title", nil);
+    titleLabel.textColor = [UIColor whiteColor];
+    [titleLabel sizeToFit];
+    self.tabBarController.navigationItem.titleView = titleLabel;
+    UIButton *rightButton = [[UIButton alloc] init];
+    [rightButton setImage:[UIImage imageNamed:@"icon_more_option"] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(handleNavigationRightClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    int margin = -6;
+    negativeSpacer.width = margin;
+    self.tabBarController.navigationItem.rightBarButtonItems = nil;
+    [self.tabBarController.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:negativeSpacer, rightBtnItem, nil]];
 
     self.collectionView = [[BaseCollectionView alloc] initWithCellClass:[MUDeviceCollectionViewCell class] direction:UICollectionViewScrollDirectionVertical];
     [self.view addSubview:self.collectionView];
@@ -45,21 +59,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 185.0f, 44)];
-    titleLabel.font = [UIFont boldSystemFontOfSize:15];
-    titleLabel.text = NSLocalizedString(@"device_list_title", nil);
-    titleLabel.textColor = [UIColor whiteColor];
-    [titleLabel sizeToFit];
-    self.tabBarController.navigationItem.titleView = titleLabel;
-    UIButton *rightButton = [[UIButton alloc] init];
-    [rightButton setImage:[UIImage imageNamed:@"icon_more_option"] forState:UIControlStateNormal];
-    [rightButton addTarget:self action:@selector(handleNavigationRightClicked:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    int margin = -6;
-    negativeSpacer.width = margin;
-    self.tabBarController.navigationItem.rightBarButtonItems = nil;
-    [self.tabBarController.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:negativeSpacer, rightBtnItem, nil]];
 }
 
 // 用tabBarController的navigationController push新界面，否则底部tabBar会一直显示
