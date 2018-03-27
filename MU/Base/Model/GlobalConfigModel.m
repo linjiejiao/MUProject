@@ -9,6 +9,8 @@
 #import "GlobalConfigModel.h"
 
 NSString const* kGlobalConfigModel_isEverLogin = @"kGlobalConfigModel_isEverLogin";
+NSString const* kGlobalConfigModel_NickName = @"kGlobalConfigModel_NickName";
+NSString const* kGlobalConfigModel_Password = @"kGlobalConfigModel_Password";
 
 @implementation GlobalConfigModel
 

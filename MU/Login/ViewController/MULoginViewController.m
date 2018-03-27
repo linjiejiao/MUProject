@@ -12,6 +12,8 @@
 #import "AppDelegate.h"
 #import "MULoginModel.h"
 
+#import "BottomLineTextField.h"
+
 @interface MULoginViewController ()
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (assign, nonatomic) BOOL isKeybordShown;
@@ -59,30 +61,15 @@
     companyNameEn.textAlignment = NSTextAlignmentCenter;
     [self.scrollView addSubview:companyNameEn];
 
-    UITextField *phoneNumber = [[UITextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(companyNameEn.frame) + 60, ScreenWidth - 60, 21)];
+    BottomLineTextField *phoneNumber = [[BottomLineTextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(companyNameEn.frame) + 60, ScreenWidth - 60, 21)];
+    phoneNumber.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
     phoneNumber.placeholder = NSLocalizedString(@"login_phone_number_placeholder", nil);
     [self.scrollView addSubview:phoneNumber];
 
-    UIView *inputBottomLine = [[UIView alloc] init];
-    inputBottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
-    [self.scrollView addSubview:inputBottomLine];
-    [inputBottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.equalTo(phoneNumber);
-        make.top.equalTo(phoneNumber.mas_bottom);
-        make.height.mas_equalTo(1);
-    }];
-
-    UITextField *password = [[UITextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(phoneNumber.frame) + 30, ScreenWidth - 60, 21)];
+    BottomLineTextField *password = [[BottomLineTextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(phoneNumber.frame) + 30, ScreenWidth - 60, 21)];
+    password.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
     password.placeholder = NSLocalizedString(@"login_password_placeholder", nil);
     [self.scrollView addSubview:password];
-    inputBottomLine = [[UIView alloc] init];
-    inputBottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
-    [self.scrollView addSubview:inputBottomLine];
-    [inputBottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.equalTo(password);
-        make.top.equalTo(password.mas_bottom);
-        make.height.mas_equalTo(1);
-    }];
 
     UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
     loginButton.frame = CGRectMake(30, CGRectGetMaxY(password.frame) + 30, ScreenWidth - 60, 45);

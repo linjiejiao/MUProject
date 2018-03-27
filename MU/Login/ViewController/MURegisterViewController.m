@@ -11,6 +11,8 @@
 #import "AppDelegate.h"
 #import "MULoginModel.h"
 
+#import "BottomLineTextField.h"
+
 @interface MURegisterViewController ()
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (assign, nonatomic) BOOL isKeybordShown;
@@ -71,56 +73,25 @@
     sendPinButton.frame = CGRectMake(ScreenWidth - (sendPinButtonWidth + 30), CGRectGetMaxY(companyNameEn.frame) + 58, sendPinButtonWidth, 21);
     [self.scrollView addSubview:sendPinButton];
 
-    UITextField *phoneNumber = [[UITextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(companyNameEn.frame) + 60, ScreenWidth - 70 - sendPinButtonWidth, 21)];
+    BottomLineTextField *phoneNumber = [[BottomLineTextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(companyNameEn.frame) + 60, ScreenWidth - 70 - sendPinButtonWidth, 21)];
+    phoneNumber.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
     phoneNumber.placeholder = NSLocalizedString(@"login_phone_number_placeholder", nil);
     [self.scrollView addSubview:phoneNumber];
 
-    UIView *inputBottomLine = [[UIView alloc] init];
-    inputBottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
-    [self.scrollView addSubview:inputBottomLine];
-    [inputBottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(phoneNumber.mas_leading);
-        make.trailing.equalTo(sendPinButton.mas_trailing);
-        make.top.equalTo(phoneNumber.mas_bottom);
-        make.height.mas_equalTo(1);
-    }];
-
-    UITextField *pinCode = [[UITextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(phoneNumber.frame) + 30, ScreenWidth - 60, 21)];
+    BottomLineTextField *pinCode = [[BottomLineTextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(phoneNumber.frame) + 30, ScreenWidth - 60, 21)];
+    pinCode.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
     pinCode.placeholder = NSLocalizedString(@"login_pin_code_placeholder", nil);
     [self.scrollView addSubview:pinCode];
 
-    inputBottomLine = [[UIView alloc] init];
-    inputBottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
-    [self.scrollView addSubview:inputBottomLine];
-    [inputBottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.equalTo(pinCode);
-        make.top.equalTo(pinCode.mas_bottom);
-        make.height.mas_equalTo(1);
-    }];
-
-    UITextField *password = [[UITextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(pinCode.frame) + 30, ScreenWidth - 60, 21)];
+    BottomLineTextField *password = [[BottomLineTextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(pinCode.frame) + 30, ScreenWidth - 60, 21)];
+    password.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
     password.placeholder = NSLocalizedString(@"login_password_placeholder", nil);
     [self.scrollView addSubview:password];
-    inputBottomLine = [[UIView alloc] init];
-    inputBottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
-    [self.scrollView addSubview:inputBottomLine];
-    [inputBottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.equalTo(password);
-        make.top.equalTo(password.mas_bottom);
-        make.height.mas_equalTo(1);
-    }];
 
-    UITextField *confirmPassword = [[UITextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(password.frame) + 30, ScreenWidth - 60, 21)];
+    BottomLineTextField *confirmPassword = [[BottomLineTextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(password.frame) + 30, ScreenWidth - 60, 21)];
+    confirmPassword.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
     confirmPassword.placeholder = NSLocalizedString(@"login_password_confirm_placeholder", nil);
     [self.scrollView addSubview:confirmPassword];
-    inputBottomLine = [[UIView alloc] init];
-    inputBottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
-    [self.scrollView addSubview:inputBottomLine];
-    [inputBottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.equalTo(confirmPassword);
-        make.top.equalTo(confirmPassword.mas_bottom);
-        make.height.mas_equalTo(1);
-    }];
 
     UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     registerButton.frame = CGRectMake(30, CGRectGetMaxY(confirmPassword.frame) + 30, ScreenWidth - 60, 45);

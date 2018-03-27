@@ -12,6 +12,9 @@
 		7263DCAD20639DFC00B4121B /* MUDeviceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7263DCAC20639DFC00B4121B /* MUDeviceItem.m */; };
 		7263DCB02063A0E900B4121B /* MUDevicesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7263DCAF2063A0E900B4121B /* MUDevicesDataSource.m */; };
 		7263DCB32065019400B4121B /* MUStepIndecatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7263DCB22065019400B4121B /* MUStepIndecatorView.m */; };
+		72694E4A206A513600033411 /* MUChangeNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72694E49206A513600033411 /* MUChangeNickNameViewController.m */; };
+		72694E4D206A515900033411 /* MUChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72694E4C206A515900033411 /* MUChangePasswordViewController.m */; };
+		72694E50206A672600033411 /* BottomLineTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 72694E4F206A672600033411 /* BottomLineTextField.m */; };
 		7278C310205BB92400606A2B /* GlobalConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7278C30F205BB92400606A2B /* GlobalConfigModel.m */; };
 		7278C313205BC19300606A2B /* MURegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7278C312205BC19300606A2B /* MURegisterViewController.m */; };
 		7278C31B205BE06200606A2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7278C31A205BE06200606A2B /* Assets.xcassets */; };
@@ -51,6 +54,12 @@
 		7263DCAF2063A0E900B4121B /* MUDevicesDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUDevicesDataSource.m; sourceTree = "<group>"; };
 		7263DCB12065019400B4121B /* MUStepIndecatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUStepIndecatorView.h; sourceTree = "<group>"; };
 		7263DCB22065019400B4121B /* MUStepIndecatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUStepIndecatorView.m; sourceTree = "<group>"; };
+		72694E48206A513600033411 /* MUChangeNickNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUChangeNickNameViewController.h; sourceTree = "<group>"; };
+		72694E49206A513600033411 /* MUChangeNickNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUChangeNickNameViewController.m; sourceTree = "<group>"; };
+		72694E4B206A515900033411 /* MUChangePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUChangePasswordViewController.h; sourceTree = "<group>"; };
+		72694E4C206A515900033411 /* MUChangePasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUChangePasswordViewController.m; sourceTree = "<group>"; };
+		72694E4E206A672600033411 /* BottomLineTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BottomLineTextField.h; sourceTree = "<group>"; };
+		72694E4F206A672600033411 /* BottomLineTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BottomLineTextField.m; sourceTree = "<group>"; };
 		7278C30E205BB92400606A2B /* GlobalConfigModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConfigModel.h; sourceTree = "<group>"; };
 		7278C30F205BB92400606A2B /* GlobalConfigModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalConfigModel.m; sourceTree = "<group>"; };
 		7278C311205BC19300606A2B /* MURegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MURegisterViewController.h; sourceTree = "<group>"; };
@@ -220,6 +229,8 @@
 				72DC1E622043F3180073A205 /* ToastAlertView.m */,
 				7263DCA820635BCD00B4121B /* BaseCollectionViewCell.h */,
 				7263DCA920635BCD00B4121B /* BaseCollectionViewCell.m */,
+				72694E4E206A672600033411 /* BottomLineTextField.h */,
+				72694E4F206A672600033411 /* BottomLineTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -359,6 +370,10 @@
 			children = (
 				8B26E05A2067FCF800B7F2B1 /* MUFeedbackViewController.h */,
 				8B26E05B2067FCF800B7F2B1 /* MUFeedbackViewController.m */,
+				72694E48206A513600033411 /* MUChangeNickNameViewController.h */,
+				72694E49206A513600033411 /* MUChangeNickNameViewController.m */,
+				72694E4B206A515900033411 /* MUChangePasswordViewController.h */,
+				72694E4C206A515900033411 /* MUChangePasswordViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -495,15 +510,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72694E4A206A513600033411 /* MUChangeNickNameViewController.m in Sources */,
 				72DC1E1E2043A1460073A205 /* AppDelegate.m in Sources */,
 				72DC1E712043F3180073A205 /* BaseViewController.m in Sources */,
 				72DC1E732043F3180073A205 /* DeviceListViewController.m in Sources */,
+				72694E50206A672600033411 /* BottomLineTextField.m in Sources */,
 				7278C310205BB92400606A2B /* GlobalConfigModel.m in Sources */,
 				7263DCAD20639DFC00B4121B /* MUDeviceItem.m in Sources */,
 				7263DCB32065019400B4121B /* MUStepIndecatorView.m in Sources */,
 				72DC1E742043F3180073A205 /* AddDeviceViewController.m in Sources */,
 				7263DCAA20635BCD00B4121B /* BaseCollectionViewCell.m in Sources */,
 				72DC1E722043F3180073A205 /* SettingsViewController.m in Sources */,
+				72694E4D206A515900033411 /* MUChangePasswordViewController.m in Sources */,
 				8B26E05C2067FCF800B7F2B1 /* MUFeedbackViewController.m in Sources */,
 				72DC1E9F20453B910073A205 /* MULoginModel.m in Sources */,
 				8B26E04F2066919A00B7F2B1 /* MUAddDeviceStep3View.m in Sources */,

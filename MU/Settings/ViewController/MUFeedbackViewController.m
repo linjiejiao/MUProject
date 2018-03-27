@@ -9,6 +9,8 @@
 #import "MUFeedbackViewController.h"
 
 @interface MUFeedbackViewController ()
+@property (strong, nonatomic) UITextView *contactTextView;
+@property (strong, nonatomic) UITextView *feedbackTextView;
 
 @end
 
@@ -43,6 +45,7 @@
         make.trailing.equalTo(self.view.mas_trailing).offset(-30);
         make.height.mas_equalTo(50);
     }];
+    self.contactTextView = contactTextView;
 
     UITextView *feedbackTextView = [[UITextView alloc] init];
     feedbackTextView.backgroundColor = UIColor.whiteColor;
@@ -57,6 +60,7 @@
         make.trailing.equalTo(self.view.mas_trailing).offset(-30);
         make.height.mas_equalTo(150);
     }];
+    self.feedbackTextView = feedbackTextView;
 
     UIButton *summitButton = [UIButton buttonWithType:UIButtonTypeCustom];
     summitButton.layer.masksToBounds = YES;

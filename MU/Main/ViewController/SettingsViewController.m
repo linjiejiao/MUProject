@@ -11,6 +11,8 @@
 #import "MULoginModel.h"
 #import "BaseWebViewController.h"
 #import "MUFeedbackViewController.h"
+#import "MUChangeNickNameViewController.h"
+#import "MUChangePasswordViewController.h"
 
 typedef NS_ENUM(NSUInteger, SettingItemIndex) {
     SettingItemIndex_Feedback = 0,
@@ -20,6 +22,7 @@ typedef NS_ENUM(NSUInteger, SettingItemIndex) {
 };
 
 @interface SettingsViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (strong, nonatomic) UILabel *nickNameLabel;
 
 @end
 
@@ -63,6 +66,7 @@ typedef NS_ENUM(NSUInteger, SettingItemIndex) {
         make.bottom.equalTo(headerIcon.mas_centerY).offset(-7);
         make.trailing.equalTo(topView.mas_trailing).offset(-25);
     }];
+    self.nickNameLabel = nameLabel;
 
     UILabel *phoneNumberLabel = [[UILabel alloc] init];
     phoneNumberLabel.textColor = UIColor.whiteColor;
@@ -110,6 +114,12 @@ typedef NS_ENUM(NSUInteger, SettingItemIndex) {
     [super viewWillAppear:animated];
     self.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - self.tabBarController.tabBar.size.height);
     self.tabBarController.navigationController.navigationBarHidden = YES;
+    NSString *nickName = [GlobalConfigModel getStringConfigWithKey:kGlobalConfigModel_NickName];
+    if(nickName.length <= 0){
+        nickName = @"MU";
+        [GlobalConfigModel setStringConfig:nickName forKey:kGlobalConfigModel_NickName];
+    }
+    self.nickNameLabel.text = nickName;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -160,8 +170,12 @@ typedef NS_ENUM(NSUInteger, SettingItemIndex) {
             [self.navigationController pushViewController:feedbackViewController animated:YES];
         }break;
         case SettingItemIndex_ChangeNickName:{
+            MUChangeNickNameViewController *viewController = [[MUChangeNickNameViewController alloc] init];
+            [self.navigationController pushViewController:viewController animated:YES];
         }break;
         case SettingItemIndex_ChangePassword:{
+            MUChangePasswordViewController *viewController = [[MUChangePasswordViewController alloc] init];
+            [self.navigationController pushViewController:viewController animated:YES];
         }break;
         case SettingItemIndex_AboutUs:{
             [BaseWebViewController showWithUrl:@"http://www.baidu.com" from:self];

@@ -32,6 +32,8 @@
     self.stepIndex = 0;
     [self setupViews];
     [self enterStep:self.stepIndex];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapBackground:)];
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)setupViews {
@@ -99,6 +101,10 @@
         return;
     }
     [self enterStep:self.stepIndex];
+}
+
+- (void)handleTapBackground:(UITapGestureRecognizer *)tap {
+    [self.view endEditing:YES];
 }
 
 - (void)enterStep:(NSUInteger)stepIndex {

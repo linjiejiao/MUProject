@@ -7,9 +7,10 @@
 //
 
 #import "MUAddDeviceStep4View.h"
+#import "BottomLineTextField.h"
 
 @interface MUAddDeviceStep4View ()
-@property (strong, nonatomic) UITextField *deviceNameTextField;
+@property (strong, nonatomic) BottomLineTextField *deviceNameTextField;
 
 @end
 
@@ -42,7 +43,7 @@
         make.centerX.equalTo(self.mas_centerX);
     }];
 
-    UITextField *deviceNameTextField = [[UITextField alloc] init];
+    BottomLineTextField *deviceNameTextField = [[BottomLineTextField alloc] init];
     deviceNameTextField.textAlignment = NSTextAlignmentCenter;
     deviceNameTextField.placeholder = NSLocalizedString(@"rename_device_placeholder", nil);
     [self addSubview:deviceNameTextField];
@@ -53,16 +54,6 @@
         make.height.mas_equalTo(21);
     }];
     self.deviceNameTextField = deviceNameTextField;
-
-    UIView *inputBottomLine = [[UIView alloc] init];
-    inputBottomLine.backgroundColor = [UIColor colorWithRGB:0x656565];
-    [self addSubview:inputBottomLine];
-    [inputBottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.equalTo(deviceNameTextField);
-        make.top.equalTo(deviceNameTextField.mas_bottom);
-        make.height.mas_equalTo(1);
-    }];
-
 }
 
 - (NSString *)getDeviceName {

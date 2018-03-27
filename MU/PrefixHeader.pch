@@ -15,6 +15,7 @@
 #import <YYKit/YYKit.h>
 #import "Masonry.h"
 #import "UIDevice+YYAdd.h"
+#import "GlobalConfigModel.h"
 
 #define IOS3_OR_LATER   SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"3.0")
 #define IOS4_OR_LATER    SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"4.0")

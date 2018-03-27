@@ -7,10 +7,11 @@
 //
 
 #import "MUAddDeviceStep2View.h"
+#import "BottomLineTextField.h"
 
 @interface MUAddDeviceStep2View ()
-@property (strong, nonatomic) UITextField *ssidTextField;
-@property (strong, nonatomic) UITextField *passwordTextField;
+@property (strong, nonatomic) BottomLineTextField *ssidTextField;
+@property (strong, nonatomic) BottomLineTextField *passwordTextField;
 
 @end
 
@@ -51,7 +52,7 @@
         make.top.equalTo(descriptionLabel.mas_bottom).offset(20);
         make.centerX.equalTo(self.mas_centerX);
     }];
-    UITextField *wifiSSID = [[UITextField alloc] init];
+    BottomLineTextField *wifiSSID = [[BottomLineTextField alloc] init];
     wifiSSID.placeholder = NSLocalizedString(@"config_wifi_ssid_placeholder", nil);
     [self addSubview:wifiSSID];
     [wifiSSID mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -62,16 +63,7 @@
     }];
     self.ssidTextField = wifiSSID;
 
-    UIView *inputBottomLine = [[UIView alloc] init];
-    inputBottomLine.backgroundColor = [UIColor colorWithRGB:0x656565];
-    [self addSubview:inputBottomLine];
-    [inputBottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.equalTo(wifiSSID);
-        make.top.equalTo(wifiSSID.mas_bottom);
-        make.height.mas_equalTo(1);
-    }];
-
-    UITextField *wifiPassword = [[UITextField alloc] init];
+    BottomLineTextField *wifiPassword = [[BottomLineTextField alloc] init];
     wifiPassword.placeholder = NSLocalizedString(@"config_wifi_password_placeholder", nil);
     [self addSubview:wifiPassword];
     [wifiPassword mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -81,15 +73,6 @@
         make.height.mas_equalTo(21);
     }];
     self.passwordTextField = wifiPassword;
-
-    inputBottomLine = [[UIView alloc] init];
-    inputBottomLine.backgroundColor = [UIColor colorWithRGB:0x656565];
-    [self addSubview:inputBottomLine];
-    [inputBottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.equalTo(wifiPassword);
-        make.top.equalTo(wifiPassword.mas_bottom);
-        make.height.mas_equalTo(1);
-    }];
 }
 
 - (NSString *)wifiSSID {

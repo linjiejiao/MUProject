@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 FOUNDATION_EXPORT NSString* kGlobalConfigModel_isEverLogin;
+FOUNDATION_EXPORT NSString* kGlobalConfigModel_NickName;
+FOUNDATION_EXPORT NSString* kGlobalConfigModel_Password;
 
 @interface GlobalConfigModel : NSObject
 
