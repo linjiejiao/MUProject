@@ -8,6 +8,8 @@
 
 #import "DeviceListViewController.h"
 #import "AddDeviceViewController.h"
+#import "MUDeviceDetailViewController.h"
+
 #import "MUDeviceCollectionViewCell.h"
 #import "MUDevicesDataSource.h"
 
@@ -62,6 +64,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.collectionView reloadData];
 }
 
 // 用tabBarController的navigationController push新界面，否则底部tabBar会一直显示
@@ -76,7 +79,12 @@
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-
+    MUDeviceItem *deviceItem = [self.devicesDataSource getDeviceItemAtIndexPath:indexPath];
+    if(!deviceItem){
+        return;
+    }
+    MUDeviceDetailViewController *vc = [[MUDeviceDetailViewController alloc] initWithDeviceItem:deviceItem];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

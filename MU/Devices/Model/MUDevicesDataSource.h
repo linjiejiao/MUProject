@@ -18,4 +18,6 @@
 
 - (void)loadDataWithCompletion:(void(^)(BOOL success, NSArray<MUDeviceItem *> *devicesList))completion;
 
+- (MUDeviceItem *)getDeviceItemAtIndexPath:(NSIndexPath *)index;
+
 @end

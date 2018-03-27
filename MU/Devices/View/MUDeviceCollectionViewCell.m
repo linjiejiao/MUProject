@@ -57,13 +57,13 @@
 
     self.switchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.switchButton setImage:[UIImage imageNamed:@"icon_switch_off"] forState:UIControlStateNormal];
-    [self.switchButton setImage:[UIImage imageNamed:@"icon_switch_on"] forState:UIControlStateSelected];
     [self.backgroundContaincer addSubview:self.switchButton];
     [self.switchButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.backgroundContaincer.mas_leading).offset(15);
         make.centerY.equalTo(self.backgroundContaincer.mas_centerY);
         make.size.mas_equalTo(CGSizeMake(67, 67));
     }];
+    [self.switchButton addTarget:self action:@selector(handleSwitchClicked:) forControlEvents:UIControlEventTouchUpInside];
 
     self.deviceNameLabel = [[UILabel alloc] init];
     [self.backgroundContaincer addSubview:self.deviceNameLabel];
@@ -98,13 +98,37 @@
         make.bottom.equalTo(self.backgroundContaincer.mas_bottom).offset(-10);
         make.trailing.equalTo(self.backgroundContaincer.mas_trailing).offset(-10);
     }];
+    [self.deleteButton addTarget:self action:@selector(handleDeleteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)setDeviceItem:(MUDeviceItem *)deviceItem {
     _deviceItem = deviceItem;
     self.deviceTimerIcon.hidden = !deviceItem.hasTimer;
     self.deviceNameLabel.text = deviceItem.name;
-    self.switchButton.selected = (deviceItem.status == MUDeviceItemStatus_On);
+    if(deviceItem.status == MUDeviceItemStatus_On){
+        [self.switchButton setImage:[UIImage imageNamed:@"icon_switch_on"] forState:UIControlStateNormal];
+    }else{
+        [self.switchButton setImage:[UIImage imageNamed:@"icon_switch_off"] forState:UIControlStateNormal];
+    }
+}
+
+- (void)handleDeleteButtonClicked:(UIButton *)button {
+    if(self.delegate && [self.delegate respondsToSelector:@selector(deviceCell:didClickDeleteButtonWithDeviceItem:)]){
+        [self.delegate deviceCell:self didClickDeleteButtonWithDeviceItem:self.deviceItem];
+    }
+}
+
+- (void)handleSwitchClicked:(UIButton *)button {
+    if(self.deviceItem.status == MUDeviceItemStatus_On){
+        self.deviceItem.status = MUDeviceItemStatus_Off;
+        [self.switchButton setImage:[UIImage imageNamed:@"icon_switch_off"] forState:UIControlStateNormal];
+    }else{
+        self.deviceItem.status = MUDeviceItemStatus_On;
+        [self.switchButton setImage:[UIImage imageNamed:@"icon_switch_on"] forState:UIControlStateNormal];
+    }
+    if(self.delegate && [self.delegate respondsToSelector:@selector(deviceCell:didClickSwitchButtonWithDeviceItem:)]){
+        [self.delegate deviceCell:self didClickSwitchButtonWithDeviceItem:self.deviceItem];
+    }
 }
 
 @end

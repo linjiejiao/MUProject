@@ -53,6 +53,13 @@
     }
 }
 
+- (MUDeviceItem *)getDeviceItemAtIndexPath:(NSIndexPath *)index {
+    if(index.item < self.devicesList.count){
+        return self.devicesList[index.item];
+    }
+    return nil;
+}
+
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.devicesList.count;
