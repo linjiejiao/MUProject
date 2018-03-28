@@ -13,9 +13,11 @@
 #import "MULoginModel.h"
 
 #import "BottomLineTextField.h"
+#import "MUCompanyLogoView.h"
 
 @interface MULoginViewController ()
 @property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) UIView *contentView;
 @property (assign, nonatomic) BOOL isKeybordShown;
 
 @end
@@ -34,45 +36,64 @@
     [self.view.layer addSublayer:gradientLayer];
 
     self.scrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    if(IOS11_OR_LATER){
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    if (@available(iOS 11.0, *)) {
         self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapView:)];
-    [self.scrollView addGestureRecognizer:tap];
     [self.view addSubview:self.scrollView];
+    self.contentView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.scrollView addSubview:self.contentView];
 
-    UIImageView *logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake((ScreenWidth - 100)/2, 95, 100, 100)];
-    logoImageView.layer.masksToBounds = YES;
-    logoImageView.layer.cornerRadius = 20;
-    logoImageView.image = [UIImage imageNamed:@"app_logo_large"];
-    [self.scrollView addSubview:logoImageView];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapView:)];
+    [self.contentView addGestureRecognizer:tap];
 
-    UILabel *companyName = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(logoImageView.frame) + 20, ScreenWidth, 25)];
-    companyName.textColor = UIColor.whiteColor;
-    companyName.text = NSLocalizedString(@"company_name", nil);
-    companyName.font = [UIFont systemFontOfSize:20];
-    companyName.textAlignment = NSTextAlignmentCenter;
-    [self.scrollView addSubview:companyName];
+    MUCompanyLogoView *logoView = [[MUCompanyLogoView alloc] init];
+    [self.contentView addSubview:logoView];
+    [logoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.contentView.mas_centerX);
+        make.top.equalTo(self.contentView.mas_top).offset(95);
+        make.size.mas_equalTo(logoView.size);
+    }];
 
-    UILabel *companyNameEn = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(companyName.frame) + 10, ScreenWidth, 16)];
-    companyNameEn.textColor = UIColor.whiteColor;
-    companyNameEn.text = NSLocalizedString(@"company_name_en", nil);
-    companyNameEn.font = [UIFont systemFontOfSize:12];
-    companyNameEn.textAlignment = NSTextAlignmentCenter;
-    [self.scrollView addSubview:companyNameEn];
+    UIImageView *phoneIcon = [[UIImageView alloc] init];
+    phoneIcon.image = [UIImage imageNamed:@"login_icon_name"];
+    [self.contentView addSubview:phoneIcon];
+    [phoneIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).offset(30);
+        make.top.equalTo(logoView.mas_bottom).offset(60);
+        make.size.mas_equalTo(CGSizeMake(25, 25));
+    }];
 
-    BottomLineTextField *phoneNumber = [[BottomLineTextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(companyNameEn.frame) + 60, ScreenWidth - 60, 21)];
+    BottomLineTextField *phoneNumber = [[BottomLineTextField alloc] init];
     phoneNumber.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
     phoneNumber.placeholder = NSLocalizedString(@"login_phone_number_placeholder", nil);
-    [self.scrollView addSubview:phoneNumber];
+    [self.contentView addSubview:phoneNumber];
+    [phoneNumber mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(phoneIcon.mas_right).offset(5);
+        make.centerY.equalTo(phoneIcon.mas_centerY);
+        make.right.equalTo(self.contentView.mas_right).offset(-30);
+    }];
 
-    BottomLineTextField *password = [[BottomLineTextField alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(phoneNumber.frame) + 30, ScreenWidth - 60, 21)];
+    UIImageView *passwordIcon = [[UIImageView alloc] init];
+    passwordIcon.image = [UIImage imageNamed:@"login_icon_key"];
+    [self.contentView addSubview:passwordIcon];
+    [passwordIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).offset(30);
+        make.top.equalTo(phoneNumber.mas_bottom).offset(30);
+        make.size.mas_equalTo(CGSizeMake(25, 25));
+    }];
+
+    BottomLineTextField *password = [[BottomLineTextField alloc] init];
     password.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
     password.placeholder = NSLocalizedString(@"login_password_placeholder", nil);
-    [self.scrollView addSubview:password];
+    [self.contentView addSubview:password];
+    [password mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(passwordIcon.mas_right).offset(5);
+        make.centerY.equalTo(passwordIcon.mas_centerY);
+        make.right.equalTo(self.contentView.mas_right).offset(-30);
+    }];
 
     UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    loginButton.frame = CGRectMake(30, CGRectGetMaxY(password.frame) + 30, ScreenWidth - 60, 45);
     loginButton.layer.masksToBounds = YES;
     loginButton.layer.cornerRadius = 22.5;
     loginButton.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -80,36 +101,50 @@
     [loginButton setTitleColor:[UIColor colorWithRGB:0x008afd] forState:UIControlStateNormal];
     [loginButton setTitle:NSLocalizedString(@"login_corfirm", nil) forState:UIControlStateNormal];
     [loginButton addTarget:self action:@selector(loginClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.scrollView addSubview:loginButton];
+    [self.contentView addSubview:loginButton];
+    [loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).offset(30);
+        make.right.equalTo(self.contentView.mas_right).offset(-30);
+        make.top.equalTo(password.mas_bottom).offset(30);
+        make.height.mas_equalTo(45);
+    }];
 
     UIButton *forgetPasswordButton = [UIButton buttonWithType:UIButtonTypeCustom];
     forgetPasswordButton.titleLabel.font = [UIFont systemFontOfSize:12];
     [forgetPasswordButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
     [forgetPasswordButton setTitle:NSLocalizedString(@"login_forget_password", nil) forState:UIControlStateNormal];
     [forgetPasswordButton addTarget:self action:@selector(forgetPasswordClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.scrollView addSubview:forgetPasswordButton];
+    [self.contentView addSubview:forgetPasswordButton];
     [forgetPasswordButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(loginButton.mas_bottom).offset(20);
         make.leading.equalTo(loginButton.mas_leading);
     }];
 
-    UIButton *gegisterButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    gegisterButton.titleLabel.font = [UIFont systemFontOfSize:12];
-    gegisterButton.layer.cornerRadius = 2;
-    gegisterButton.layer.borderColor = UIColor.whiteColor.CGColor;
-    gegisterButton.layer.borderWidth = 1;
-    [gegisterButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
-    [gegisterButton setTitle:NSLocalizedString(@"login_register_button", nil) forState:UIControlStateNormal];
-    [gegisterButton addTarget:self action:@selector(registerClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [gegisterButton sizeToFit];
-    [self.scrollView addSubview:gegisterButton];
-    [gegisterButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    registerButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    registerButton.layer.cornerRadius = 2;
+    registerButton.layer.borderColor = UIColor.whiteColor.CGColor;
+    registerButton.layer.borderWidth = 1;
+    [registerButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    [registerButton setTitle:NSLocalizedString(@"login_register_button", nil) forState:UIControlStateNormal];
+    [registerButton addTarget:self action:@selector(registerClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [registerButton sizeToFit];
+    [self.contentView addSubview:registerButton];
+    [registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(loginButton.mas_bottom).offset(20);
         make.trailing.equalTo(loginButton.mas_trailing);
-        make.width.mas_equalTo(gegisterButton.frame.size.width + 10);
+        make.width.mas_equalTo(registerButton.frame.size.width + 10);
     }];
-    [self.scrollView layoutSubviews];
-    self.scrollView.contentSize = CGSizeMake(ScreenWidth, CGRectGetMaxY(gegisterButton.frame) + 10);
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(registerButton.mas_bottom).offset(30);
+        make.top.leading.equalTo(self.scrollView);
+        make.width.mas_equalTo(ScreenWidth);
+    }];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.scrollView.contentSize = self.contentView.size;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -149,47 +184,35 @@
 
 #pragma mark - Notifications
 - (void)keybordAppear:(NSNotification *)notification {
-    if(self.isKeybordShown){
-        return;
-    }
-    self.isKeybordShown = YES;
     NSDictionary* info = [notification userInfo];
     NSValue* aValue = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardRect = [aValue CGRectValue];
     CGFloat height = CGRectGetHeight(keyboardRect);
-    NSTimeInterval animationDuration = [info[UIKeyboardAnimationDurationUserInfoKey] floatValue];
-    UIViewAnimationCurve animationCurve = [info[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+    if(self.isKeybordShown){
+        if(height > 0){
+            CGRect frame = self.view.bounds;
+            frame.size.height -= height;
+            self.scrollView.frame = frame;
+        }
+        return;
+    }
+    self.isKeybordShown = YES;
     if(height > 0){
         // 动画
-        [self.scrollView.layer removeAllAnimations];
-        [UIView beginAnimations:@"keyboard_show" context:nil];
-        [UIView setAnimationCurve:animationCurve];
-        [UIView setAnimationDuration:animationDuration];
         CGRect frame = self.view.bounds;
         frame.size.height -= height;
         self.scrollView.frame = frame;
-        self.scrollView.contentOffset = CGPointMake(0, height);
-        [UIView commitAnimations];
     }
 }
 
 - (void)keybordDisappear:(NSNotification *)notification {
     if(!self.isKeybordShown){
-        self.scrollView.contentOffset = CGPointZero;
-        self.scrollView.frame = self.view.bounds;
+        self.scrollView.height = self.view.height;
         return;
     }
     [self.scrollView.layer removeAllAnimations];
     self.isKeybordShown = NO;
-    NSDictionary* info = [notification userInfo];
-    NSTimeInterval animationDuration = [info[UIKeyboardAnimationDurationUserInfoKey] floatValue];
-    UIViewAnimationCurve animationCurve = [info[UIKeyboardAnimationCurveUserInfoKey] integerValue];
-    [UIView beginAnimations:@"keyboard_hide" context:nil];
-    [UIView setAnimationCurve:animationCurve];
-    [UIView setAnimationDuration:animationDuration];
     self.scrollView.frame = self.view.bounds;
-    self.scrollView.contentOffset = CGPointZero;
-    [UIView commitAnimations];
 }
 
 @end

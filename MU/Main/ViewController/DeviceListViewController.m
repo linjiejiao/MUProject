@@ -13,7 +13,7 @@
 #import "MUDeviceCollectionViewCell.h"
 #import "MUDevicesDataSource.h"
 
-@interface DeviceListViewController () <UICollectionViewDelegate>
+@interface DeviceListViewController () <UICollectionViewDelegate, MUDeviceCollectionViewCellDelegate>
 @property (strong, nonatomic) BaseCollectionView *collectionView;
 @property (strong, nonatomic) MUDevicesDataSource *devicesDataSource;
 
@@ -44,11 +44,8 @@
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    if(IOS11_OR_LATER){
-        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    }
     self.collectionView.delegate = self;
-    self.devicesDataSource = [[MUDevicesDataSource alloc] init];
+    self.devicesDataSource = [[MUDevicesDataSource alloc] initWithCellDelegate:self];
     self.collectionView.dataSource = self.devicesDataSource;
     __weak typeof(self) weakSelf = self;
     [self.devicesDataSource loadDataWithCompletion:^(BOOL success, NSArray<MUDeviceItem *> *devicesList) {
@@ -85,6 +82,15 @@
     }
     MUDeviceDetailViewController *vc = [[MUDeviceDetailViewController alloc] initWithDeviceItem:deviceItem];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - MUDeviceCollectionViewCellDelegate
+- (void)deviceCell:(MUDeviceCollectionViewCell *)cell didClickDeleteButtonWithDeviceItem:(MUDeviceItem *)deviceItem {
+
+}
+
+- (void)deviceCell:(MUDeviceCollectionViewCell *)cell didClickSwitchButtonWithDeviceItem:(MUDeviceItem *)deviceItem {
+
 }
 
 @end

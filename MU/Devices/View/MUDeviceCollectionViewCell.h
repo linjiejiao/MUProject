@@ -14,6 +14,7 @@
 @protocol MUDeviceCollectionViewCellDelegate <NSObject>
 @optional
 - (void)deviceCell:(MUDeviceCollectionViewCell *)cell didClickDeleteButtonWithDeviceItem:(MUDeviceItem *)deviceItem;
+
 - (void)deviceCell:(MUDeviceCollectionViewCell *)cell didClickSwitchButtonWithDeviceItem:(MUDeviceItem *)deviceItem;
 
 @end

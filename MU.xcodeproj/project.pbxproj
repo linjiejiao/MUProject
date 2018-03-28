@@ -16,6 +16,7 @@
 		72694E4D206A515900033411 /* MUChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72694E4C206A515900033411 /* MUChangePasswordViewController.m */; };
 		72694E50206A672600033411 /* BottomLineTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 72694E4F206A672600033411 /* BottomLineTextField.m */; };
 		72694E53206A76D400033411 /* MUDeviceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72694E52206A76D400033411 /* MUDeviceDetailViewController.m */; };
+		72694E56206B3AD600033411 /* MUCompanyLogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72694E55206B3AD600033411 /* MUCompanyLogoView.m */; };
 		7278C310205BB92400606A2B /* GlobalConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7278C30F205BB92400606A2B /* GlobalConfigModel.m */; };
 		7278C313205BC19300606A2B /* MURegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7278C312205BC19300606A2B /* MURegisterViewController.m */; };
 		7278C31B205BE06200606A2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7278C31A205BE06200606A2B /* Assets.xcassets */; };
@@ -63,6 +64,8 @@
 		72694E4F206A672600033411 /* BottomLineTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BottomLineTextField.m; sourceTree = "<group>"; };
 		72694E51206A76D400033411 /* MUDeviceDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUDeviceDetailViewController.h; sourceTree = "<group>"; };
 		72694E52206A76D400033411 /* MUDeviceDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUDeviceDetailViewController.m; sourceTree = "<group>"; };
+		72694E54206B3AD600033411 /* MUCompanyLogoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUCompanyLogoView.h; sourceTree = "<group>"; };
+		72694E55206B3AD600033411 /* MUCompanyLogoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUCompanyLogoView.m; sourceTree = "<group>"; };
 		7278C30E205BB92400606A2B /* GlobalConfigModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConfigModel.h; sourceTree = "<group>"; };
 		7278C30F205BB92400606A2B /* GlobalConfigModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalConfigModel.m; sourceTree = "<group>"; };
 		7278C311205BC19300606A2B /* MURegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MURegisterViewController.h; sourceTree = "<group>"; };
@@ -303,6 +306,8 @@
 		72DC1E87204521500073A205 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				72694E54206B3AD600033411 /* MUCompanyLogoView.h */,
+				72694E55206B3AD600033411 /* MUCompanyLogoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -518,6 +523,7 @@
 				72694E4A206A513600033411 /* MUChangeNickNameViewController.m in Sources */,
 				72DC1E1E2043A1460073A205 /* AppDelegate.m in Sources */,
 				72DC1E712043F3180073A205 /* BaseViewController.m in Sources */,
+				72694E56206B3AD600033411 /* MUCompanyLogoView.m in Sources */,
 				72DC1E732043F3180073A205 /* DeviceListViewController.m in Sources */,
 				72694E50206A672600033411 /* BottomLineTextField.m in Sources */,
 				7278C310205BB92400606A2B /* GlobalConfigModel.m in Sources */,
