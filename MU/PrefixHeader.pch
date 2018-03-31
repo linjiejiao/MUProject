@@ -29,6 +29,8 @@
 #define IOS10_OR_LATER  SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")
 #define IOS11_OR_LATER  SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11.0")
 
+#define NSLocalizedStringWithKey(key)   NSLocalizedString(key, nil)
+
 #define iPhoneX [[[UIDevice currentDevice] machineModel] hasPrefix:@"iPhone10,"]
 
 #define StatusBarHeight (iPhoneX ? 44:20)

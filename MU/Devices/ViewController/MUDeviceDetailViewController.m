@@ -7,6 +7,8 @@
 //
 
 #import "MUDeviceDetailViewController.h"
+#import "MUOperationLogViewController.h"
+#import "MUDeviceOperationManager.h"
 
 @interface MUDeviceDetailViewController ()
 @property (strong, nonatomic) MUDeviceItem *deviceItem;
@@ -50,7 +52,7 @@
         make.center.equalTo(self.view);
     }];
 
-    self.operationLogButton = [self createBotttomButtonWithTitle:NSLocalizedString(@"device_detail_operation_log", nil) imageName:@"btn_record"];
+    self.operationLogButton = [self createBotttomButtonWithTitle:NSLocalizedStringWithKey(@"device_detail_operation_log") imageName:@"btn_record"];
     [self.operationLogButton addTarget:self action:@selector(handleOperationLogClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.operationLogButton];
     [self.operationLogButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -59,7 +61,7 @@
         make.size.mas_equalTo(self.operationLogButton.frame.size);
     }];
 
-    self.timerButton = [self createBotttomButtonWithTitle:NSLocalizedString(@"device_detail_timer", nil) imageName:@"btn_clock"];
+    self.timerButton = [self createBotttomButtonWithTitle:NSLocalizedStringWithKey(@"device_detail_timer") imageName:@"btn_clock"];
     [self.timerButton addTarget:self action:@selector(handleTimerClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.timerButton];
     [self.timerButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -68,7 +70,7 @@
         make.size.mas_equalTo(self.timerButton.frame.size);
     }];
 
-    self.loopButton = [self createBotttomButtonWithTitle:NSLocalizedString(@"device_detail_loop", nil) imageName:@"btn_repeat"];
+    self.loopButton = [self createBotttomButtonWithTitle:NSLocalizedStringWithKey(@"device_detail_loop") imageName:@"btn_repeat"];
     [self.loopButton addTarget:self action:@selector(handleLoopClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.loopButton];
     [self.loopButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -96,13 +98,17 @@
 }
 
 - (void)handleSwitchClicked:(UIButton *)button {
+    MUDeviceOperationLogAction action = MUDeviceOperationLogAction_On;
     if(self.deviceItem.status == MUDeviceItemStatus_On){
+        action = MUDeviceOperationLogAction_Off;
         self.deviceItem.status = MUDeviceItemStatus_Off;
         [self.switchButton setImage:[UIImage imageNamed:@"icon_switch_off"] forState:UIControlStateNormal];
     }else{
+        action = MUDeviceOperationLogAction_On;
         self.deviceItem.status = MUDeviceItemStatus_On;
         [self.switchButton setImage:[UIImage imageNamed:@"icon_switch_on"] forState:UIControlStateNormal];
     }
+    [[MUDeviceOperationManager sharedInstance] doOperateDevice:self.deviceItem actionType:action time:[[NSDate date] timeIntervalSince1970] trigger:MUDeviceOperationLogTrigger_App];
 }
 
 - (void)handleNavigationRightClicked:(UIButton *)sender {
@@ -110,7 +116,8 @@
 }
 
 - (void)handleOperationLogClicked:(UIButton *)button {
-
+    MUOperationLogViewController *vc = [[MUOperationLogViewController alloc] initWithDeviceItem:self.deviceItem];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)handleTimerClicked:(UIButton *)button {

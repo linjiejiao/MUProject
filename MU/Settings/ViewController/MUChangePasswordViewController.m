@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"settings_change_password", nil);
+    self.title = NSLocalizedStringWithKey(@"settings_change_password");
     // test code
     NSString *storedPassword = [GlobalConfigModel getStringConfigWithKey:kGlobalConfigModel_Password];
     if(storedPassword.length <= 0){
@@ -27,7 +27,7 @@
     }
 
     BottomLineTextField *oldPasswordTextField = [[BottomLineTextField alloc] init];
-    oldPasswordTextField.placeholder = NSLocalizedString(@"old_password_placeholder", nil);
+    oldPasswordTextField.placeholder = NSLocalizedStringWithKey(@"old_password_placeholder");
     oldPasswordTextField.font = [UIFont systemFontOfSize:15];
     [self.view addSubview:oldPasswordTextField];
     [oldPasswordTextField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -39,7 +39,7 @@
     self.oldPasswordTextField = oldPasswordTextField;
 
     BottomLineTextField *changedPasswordTextField = [[BottomLineTextField alloc] init];
-    changedPasswordTextField.placeholder = NSLocalizedString(@"new_password_placeholder", nil);
+    changedPasswordTextField.placeholder = NSLocalizedStringWithKey(@"new_password_placeholder");
     changedPasswordTextField.font = [UIFont systemFontOfSize:15];
     [self.view addSubview:changedPasswordTextField];
     [changedPasswordTextField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -54,7 +54,7 @@
     descriptionLabel.font = [UIFont systemFontOfSize:16];
     descriptionLabel.textColor = [UIColor colorWithRGB:0x656565];
     descriptionLabel.numberOfLines = 0;
-    descriptionLabel.text = NSLocalizedString(@"change_password_tips", nil);
+    descriptionLabel.text = NSLocalizedStringWithKey(@"change_password_tips");
     [self.view addSubview:descriptionLabel];
     [descriptionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(changedPasswordTextField.mas_bottom).offset(5);
@@ -68,7 +68,7 @@
     confirmButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [confirmButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRGB:0x1b9dfc]] forState:UIControlStateNormal];
     [confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [confirmButton setTitle:NSLocalizedString(@"button_confirm", nil) forState:UIControlStateNormal];
+    [confirmButton setTitle:NSLocalizedStringWithKey(@"button_confirm") forState:UIControlStateNormal];
     [confirmButton addTarget:self action:@selector(handleConfirmButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:confirmButton];
     [confirmButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -85,11 +85,11 @@
 - (void)handleConfirmButtonClicked:(UIButton *)button {
     NSString *storedPassword = [GlobalConfigModel getStringConfigWithKey:kGlobalConfigModel_Password];
     if(![storedPassword isEqualToString:self.oldPasswordTextField.text]){
-        [self showToast:NSLocalizedString(@"old_password_not_match_tips", nil)];
+        [self showToast:NSLocalizedStringWithKey(@"old_password_not_match_tips")];
         return;
     }
     if(self.changedPasswordTextField.text.length < 8){
-        [self showToast:NSLocalizedString(@"new_password_too_short_tips", nil)];
+        [self showToast:NSLocalizedStringWithKey(@"new_password_too_short_tips")];
         return;
     }
     [GlobalConfigModel setStringConfig:self.changedPasswordTextField.text forKey:kGlobalConfigModel_Password];

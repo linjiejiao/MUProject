@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"add_device_title", nil);
+    self.title = NSLocalizedStringWithKey(@"add_device_title");
     self.stepIndex = 0;
     [self setupViews];
     [self enterStep:self.stepIndex];
@@ -51,7 +51,7 @@
     self.bottomButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.bottomButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRGB:0x1b9dfc]] forState:UIControlStateNormal];
     [self.bottomButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.bottomButton setTitle:NSLocalizedString(@"button_next_step", nil) forState:UIControlStateNormal];
+    [self.bottomButton setTitle:NSLocalizedStringWithKey(@"button_next_step") forState:UIControlStateNormal];
     [self.bottomButton addTarget:self action:@selector(handleBottomButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.bottomButton];
     [self.bottomButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -114,25 +114,25 @@
         self.step2View.hidden = YES;
         self.step3View.hidden = YES;
         self.step4View.hidden = YES;
-        [self.bottomButton setTitle:NSLocalizedString(@"button_next_step", nil) forState:UIControlStateNormal];
+        [self.bottomButton setTitle:NSLocalizedStringWithKey(@"button_next_step") forState:UIControlStateNormal];
     }else if(stepIndex == 1){
         self.step1View.hidden = YES;
         self.step2View.hidden = NO;
         self.step3View.hidden = YES;
         self.step4View.hidden = YES;
-        [self.bottomButton setTitle:NSLocalizedString(@"button_next_step", nil) forState:UIControlStateNormal];
+        [self.bottomButton setTitle:NSLocalizedStringWithKey(@"button_next_step") forState:UIControlStateNormal];
     }else if(stepIndex == 2){
         self.step1View.hidden = YES;
         self.step2View.hidden = YES;
         self.step3View.hidden = NO;
         self.step4View.hidden = YES;
-        [self.bottomButton setTitle:NSLocalizedString(@"button_cancel", nil) forState:UIControlStateNormal];
+        [self.bottomButton setTitle:NSLocalizedStringWithKey(@"button_cancel") forState:UIControlStateNormal];
     }else if(stepIndex == 3){
         self.step1View.hidden = YES;
         self.step2View.hidden = YES;
         self.step3View.hidden = YES;
         self.step4View.hidden = NO;
-        [self.bottomButton setTitle:NSLocalizedString(@"button_finish", nil) forState:UIControlStateNormal];
+        [self.bottomButton setTitle:NSLocalizedStringWithKey(@"button_finish") forState:UIControlStateNormal];
     }
 }
 

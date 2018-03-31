@@ -11,3 +11,7 @@
 @implementation MUDeviceItem
 
 @end
+
+@implementation MUDeviceOperationLog
+
+@end

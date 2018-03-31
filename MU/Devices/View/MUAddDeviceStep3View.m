@@ -28,7 +28,7 @@
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.font = [UIFont systemFontOfSize:20];
     titleLabel.textColor = [UIColor colorWithRGB:0x656565];
-    titleLabel.text = NSLocalizedString(@"add_device_step3_title", nil);
+    titleLabel.text = NSLocalizedStringWithKey(@"add_device_step3_title");
     [self addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top).offset(20);
@@ -47,7 +47,7 @@
     descriptionLabel.font = [UIFont systemFontOfSize:16];
     descriptionLabel.textColor = [UIColor colorWithRGB:0x656565];
     descriptionLabel.numberOfLines = 2;
-    descriptionLabel.text = NSLocalizedString(@"add_device_step3_description", nil);
+    descriptionLabel.text = NSLocalizedStringWithKey(@"add_device_step3_description");
     [self addSubview:descriptionLabel];
     [descriptionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(imageView.mas_bottom).offset(20);
@@ -58,7 +58,7 @@
     progressTimeLabel.font = [UIFont systemFontOfSize:16];
     progressTimeLabel.textColor = [UIColor colorWithRGB:0x656565];
     progressTimeLabel.numberOfLines = 2;
-    progressTimeLabel.text = NSLocalizedString(@"3min", nil);
+    progressTimeLabel.text = NSLocalizedStringWithKey(@"3min");
     [self addSubview:progressTimeLabel];
     [progressTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(descriptionLabel.mas_bottom).offset(10);
@@ -83,7 +83,7 @@
     connectingLabel.font = [UIFont systemFontOfSize:16];
     connectingLabel.textColor = [UIColor colorWithRGB:0x656565];
     connectingLabel.numberOfLines = 2;
-    connectingLabel.text = NSLocalizedString(@"add_device_step3_connecting", nil);
+    connectingLabel.text = NSLocalizedStringWithKey(@"add_device_step3_connecting");
     [self addSubview:connectingLabel];
     [connectingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(progressView.mas_bottom).offset(10);

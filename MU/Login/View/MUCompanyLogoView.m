@@ -32,7 +32,7 @@
 
     UILabel *companyName = [[UILabel alloc] init];
     companyName.textColor = UIColor.whiteColor;
-    companyName.text = NSLocalizedString(@"company_name", nil);
+    companyName.text = NSLocalizedStringWithKey(@"company_name");
     companyName.font = [UIFont systemFontOfSize:20];
     companyName.textAlignment = NSTextAlignmentCenter;
     [self addSubview:companyName];
@@ -43,7 +43,7 @@
 
     UILabel *companyNameEn = [[UILabel alloc] init];
     companyNameEn.textColor = UIColor.whiteColor;
-    companyNameEn.text = NSLocalizedString(@"company_name_en", nil);
+    companyNameEn.text = NSLocalizedStringWithKey(@"company_name_en");
     companyNameEn.font = [UIFont systemFontOfSize:12];
     companyNameEn.textAlignment = NSTextAlignmentCenter;
     [self addSubview:companyNameEn];

@@ -97,7 +97,7 @@
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.font = [UIFont systemFontOfSize:20];
     titleLabel.textColor = [UIColor colorWithRGB:0x656565];
-    titleLabel.text = NSLocalizedString(@"add_device_step1_title", nil);
+    titleLabel.text = NSLocalizedStringWithKey(@"add_device_step1_title");
     [self addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top).offset(20);
@@ -107,7 +107,7 @@
     descriptionLabel.font = [UIFont systemFontOfSize:12];
     descriptionLabel.textColor = [UIColor colorWithRGB:0x656565];
     descriptionLabel.numberOfLines = 2;
-    descriptionLabel.text = NSLocalizedString(@"add_device_step1_description", nil);
+    descriptionLabel.text = NSLocalizedStringWithKey(@"add_device_step1_description");
     [self addSubview:descriptionLabel];
     [descriptionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(titleLabel.mas_bottom).offset(20);

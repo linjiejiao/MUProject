@@ -12,6 +12,7 @@
 
 #import "MUDeviceCollectionViewCell.h"
 #import "MUDevicesDataSource.h"
+#include "MUDeviceOperationManager.h"
 
 @interface DeviceListViewController () <UICollectionViewDelegate, MUDeviceCollectionViewCellDelegate>
 @property (strong, nonatomic) BaseCollectionView *collectionView;
@@ -25,7 +26,7 @@
     [super viewDidLoad];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 185.0f, 44)];
     titleLabel.font = [UIFont boldSystemFontOfSize:15];
-    titleLabel.text = NSLocalizedString(@"device_list_title", nil);
+    titleLabel.text = NSLocalizedStringWithKey(@"device_list_title");
     titleLabel.textColor = [UIColor whiteColor];
     [titleLabel sizeToFit];
     self.tabBarController.navigationItem.titleView = titleLabel;
@@ -90,7 +91,16 @@
 }
 
 - (void)deviceCell:(MUDeviceCollectionViewCell *)cell didClickSwitchButtonWithDeviceItem:(MUDeviceItem *)deviceItem {
-
+    MUDeviceOperationLogAction action = MUDeviceOperationLogAction_On;
+    if(deviceItem.status == MUDeviceItemStatus_On){
+        action = MUDeviceOperationLogAction_Off;
+        deviceItem.status = MUDeviceItemStatus_Off;
+    }else{
+        action = MUDeviceOperationLogAction_On;
+        deviceItem.status = MUDeviceItemStatus_On;
+    }
+    [[MUDeviceOperationManager sharedInstance] doOperateDevice:deviceItem actionType:action time:[[NSDate date] timeIntervalSince1970] trigger:MUDeviceOperationLogTrigger_App];
+    [self.collectionView reloadData];
 }
 
 @end

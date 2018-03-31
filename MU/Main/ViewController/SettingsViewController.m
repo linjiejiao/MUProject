@@ -58,7 +58,7 @@ typedef NS_ENUM(NSUInteger, SettingItemIndex) {
 
     UILabel *nameLabel = [[UILabel alloc] init];
     nameLabel.textColor = UIColor.whiteColor;
-    nameLabel.text = NSLocalizedString(@"MU", nil);
+    nameLabel.text = NSLocalizedStringWithKey(@"MU");
     nameLabel.font = [UIFont systemFontOfSize:15];
     [topView addSubview:nameLabel];
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -70,7 +70,7 @@ typedef NS_ENUM(NSUInteger, SettingItemIndex) {
 
     UILabel *phoneNumberLabel = [[UILabel alloc] init];
     phoneNumberLabel.textColor = UIColor.whiteColor;
-    phoneNumberLabel.text = NSLocalizedString(@"13800000000", nil);
+    phoneNumberLabel.text = NSLocalizedStringWithKey(@"13800000000");
     phoneNumberLabel.font = [UIFont systemFontOfSize:15];
     [topView addSubview:phoneNumberLabel];
     [phoneNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -87,7 +87,7 @@ typedef NS_ENUM(NSUInteger, SettingItemIndex) {
     logoutButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [logoutButton setBackgroundImage:[UIImage imageWithColor:UIColor.whiteColor] forState:UIControlStateNormal];
     [logoutButton setTitleColor:[UIColor colorWithRGB:0x989898] forState:UIControlStateNormal];
-    [logoutButton setTitle:NSLocalizedString(@"button_logout", nil) forState:UIControlStateNormal];
+    [logoutButton setTitle:NSLocalizedStringWithKey(@"button_logout") forState:UIControlStateNormal];
     [logoutButton addTarget:self action:@selector(handleLogoutClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:logoutButton];
     [logoutButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -142,16 +142,16 @@ typedef NS_ENUM(NSUInteger, SettingItemIndex) {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     switch (indexPath.row){
         case SettingItemIndex_Feedback:
-            cell.textLabel.text = NSLocalizedString(@"settings_feedback", nil);
+            cell.textLabel.text = NSLocalizedStringWithKey(@"settings_feedback");
             break;
         case SettingItemIndex_ChangeNickName:
-            cell.textLabel.text = NSLocalizedString(@"settings_change_nickneme", nil);
+            cell.textLabel.text = NSLocalizedStringWithKey(@"settings_change_nickneme");
             break;
         case SettingItemIndex_ChangePassword:
-            cell.textLabel.text = NSLocalizedString(@"settings_change_password", nil);
+            cell.textLabel.text = NSLocalizedStringWithKey(@"settings_change_password");
             break;
         case SettingItemIndex_AboutUs:
-            cell.textLabel.text = NSLocalizedString(@"settings_about_us", nil);
+            cell.textLabel.text = NSLocalizedStringWithKey(@"settings_about_us");
             break;
     }
     return cell;

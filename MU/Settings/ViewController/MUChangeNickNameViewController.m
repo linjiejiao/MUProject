@@ -18,12 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"settings_change_nickneme", nil);
+    self.title = NSLocalizedStringWithKey(@"settings_change_nickneme");
     UILabel *descriptionLabel = [[UILabel alloc] init];
     descriptionLabel.font = [UIFont systemFontOfSize:16];
     descriptionLabel.textColor = [UIColor colorWithRGB:0xaaaaaa];
     descriptionLabel.numberOfLines = 0;
-    descriptionLabel.text = NSLocalizedString(@"new_nick_name", nil);
+    descriptionLabel.text = NSLocalizedStringWithKey(@"new_nick_name");
     [self.view addSubview:descriptionLabel];
     [descriptionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top).offset(20);
@@ -58,7 +58,7 @@
     confirmButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [confirmButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRGB:0x1b9dfc]] forState:UIControlStateNormal];
     [confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [confirmButton setTitle:NSLocalizedString(@"button_confirm", nil) forState:UIControlStateNormal];
+    [confirmButton setTitle:NSLocalizedStringWithKey(@"button_confirm") forState:UIControlStateNormal];
     [confirmButton addTarget:self action:@selector(handleConfirmButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:confirmButton];
     [confirmButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -74,7 +74,7 @@
 
 - (void)handleConfirmButtonClicked:(UIButton *)button {
     if(self.nickNameTextField.text.length <= 0){
-        [self showToast:NSLocalizedString(@"empty_nick_name_tips", nil)];
+        [self showToast:NSLocalizedStringWithKey(@"empty_nick_name_tips")];
         return;
     }
     [GlobalConfigModel setStringConfig:self.nickNameTextField.text forKey:kGlobalConfigModel_NickName];

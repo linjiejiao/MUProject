@@ -28,7 +28,7 @@
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.font = [UIFont systemFontOfSize:20];
     titleLabel.textColor = [UIColor colorWithRGB:0x656565];
-    titleLabel.text = NSLocalizedString(@"add_device_step4_title", nil);
+    titleLabel.text = NSLocalizedStringWithKey(@"add_device_step4_title");
     [self addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top).offset(20);
@@ -45,7 +45,7 @@
 
     BottomLineTextField *deviceNameTextField = [[BottomLineTextField alloc] init];
     deviceNameTextField.textAlignment = NSTextAlignmentCenter;
-    deviceNameTextField.placeholder = NSLocalizedString(@"rename_device_placeholder", nil);
+    deviceNameTextField.placeholder = NSLocalizedStringWithKey(@"rename_device_placeholder");
     [self addSubview:deviceNameTextField];
     [deviceNameTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.mas_leading).offset(100);

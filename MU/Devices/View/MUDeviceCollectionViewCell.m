@@ -48,11 +48,11 @@
 - (void)setupViews {
     self.backgroundContaincer = [[UIView alloc] init];
     self.backgroundContaincer.backgroundColor = [UIColor colorWithRGB:0x455769];
-    [self addSubview:self.backgroundContaincer];
+    [self.contentView addSubview:self.backgroundContaincer];
     [self.backgroundContaincer mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.top.equalTo(self).offset(10);
-        make.trailing.equalTo(self).offset(-10);
-        make.bottom.equalTo(self).offset(-5);
+        make.leading.top.equalTo(self.contentView).offset(10);
+        make.trailing.equalTo(self.contentView).offset(-10);
+        make.bottom.equalTo(self.contentView).offset(-5);
     }];
 
     self.switchButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -119,13 +119,6 @@
 }
 
 - (void)handleSwitchClicked:(UIButton *)button {
-    if(self.deviceItem.status == MUDeviceItemStatus_On){
-        self.deviceItem.status = MUDeviceItemStatus_Off;
-        [self.switchButton setImage:[UIImage imageNamed:@"icon_switch_off"] forState:UIControlStateNormal];
-    }else{
-        self.deviceItem.status = MUDeviceItemStatus_On;
-        [self.switchButton setImage:[UIImage imageNamed:@"icon_switch_on"] forState:UIControlStateNormal];
-    }
     if(self.delegate && [self.delegate respondsToSelector:@selector(deviceCell:didClickSwitchButtonWithDeviceItem:)]){
         [self.delegate deviceCell:self didClickSwitchButtonWithDeviceItem:self.deviceItem];
     }

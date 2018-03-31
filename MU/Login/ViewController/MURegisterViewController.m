@@ -60,7 +60,7 @@
     sendPinButton.layer.borderColor = UIColor.whiteColor.CGColor;
     sendPinButton.layer.borderWidth = 1;
     [sendPinButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
-    [sendPinButton setTitle:NSLocalizedString(@"login_send_pin_code", nil) forState:UIControlStateNormal];
+    [sendPinButton setTitle:NSLocalizedStringWithKey(@"login_send_pin_code") forState:UIControlStateNormal];
     [sendPinButton addTarget:self action:@selector(sendPinCodeClicked:) forControlEvents:UIControlEventTouchUpInside];
     [sendPinButton sizeToFit];
     [self.contentView addSubview:sendPinButton];
@@ -72,7 +72,7 @@
 
     BottomLineTextField *phoneNumber = [[BottomLineTextField alloc] init];
     phoneNumber.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
-    phoneNumber.placeholder = NSLocalizedString(@"login_phone_number_placeholder", nil);
+    phoneNumber.placeholder = NSLocalizedStringWithKey(@"login_phone_number_placeholder");
     [self.contentView addSubview:phoneNumber];
     [phoneNumber mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).offset(30);
@@ -82,7 +82,7 @@
 
     BottomLineTextField *pinCode = [[BottomLineTextField alloc] init];
     pinCode.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
-    pinCode.placeholder = NSLocalizedString(@"login_pin_code_placeholder", nil);
+    pinCode.placeholder = NSLocalizedStringWithKey(@"login_pin_code_placeholder");
     [self.contentView addSubview:pinCode];
     [pinCode mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(phoneNumber.mas_bottom).offset(30);
@@ -92,7 +92,7 @@
 
     BottomLineTextField *password = [[BottomLineTextField alloc] init];
     password.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
-    password.placeholder = NSLocalizedString(@"login_password_placeholder", nil);
+    password.placeholder = NSLocalizedStringWithKey(@"login_password_placeholder");
     [self.contentView addSubview:password];
     [password mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(pinCode.mas_bottom).offset(30);
@@ -102,7 +102,7 @@
 
     BottomLineTextField *confirmPassword = [[BottomLineTextField alloc] init];
     confirmPassword.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
-    confirmPassword.placeholder = NSLocalizedString(@"login_password_confirm_placeholder", nil);
+    confirmPassword.placeholder = NSLocalizedStringWithKey(@"login_password_confirm_placeholder");
     [self.contentView addSubview:confirmPassword];
     [confirmPassword mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(password.mas_bottom).offset(30);
@@ -116,7 +116,7 @@
     registerButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [registerButton setBackgroundImage:[UIImage imageWithColor:UIColor.whiteColor] forState:UIControlStateNormal];
     [registerButton setTitleColor:[UIColor colorWithRGB:0x008afd] forState:UIControlStateNormal];
-    [registerButton setTitle:NSLocalizedString(@"register_corfirm", nil) forState:UIControlStateNormal];
+    [registerButton setTitle:NSLocalizedStringWithKey(@"register_corfirm") forState:UIControlStateNormal];
     [registerButton addTarget:self action:@selector(registerClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:registerButton];
     [registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -129,7 +129,7 @@
     UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
     loginButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [loginButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
-    [loginButton setTitle:NSLocalizedString(@"register_goto_login", nil) forState:UIControlStateNormal];
+    [loginButton setTitle:NSLocalizedStringWithKey(@"register_goto_login") forState:UIControlStateNormal];
     [loginButton sizeToFit];
     CGFloat buttonWidth = loginButton.frame.size.width;
     [loginButton addTarget:self action:@selector(loginClicked:) forControlEvents:UIControlEventTouchUpInside];

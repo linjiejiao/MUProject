@@ -66,7 +66,7 @@
 
     BottomLineTextField *phoneNumber = [[BottomLineTextField alloc] init];
     phoneNumber.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
-    phoneNumber.placeholder = NSLocalizedString(@"login_phone_number_placeholder", nil);
+    phoneNumber.placeholder = NSLocalizedStringWithKey(@"login_phone_number_placeholder");
     [self.contentView addSubview:phoneNumber];
     [phoneNumber mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(phoneIcon.mas_right).offset(5);
@@ -85,7 +85,7 @@
 
     BottomLineTextField *password = [[BottomLineTextField alloc] init];
     password.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
-    password.placeholder = NSLocalizedString(@"login_password_placeholder", nil);
+    password.placeholder = NSLocalizedStringWithKey(@"login_password_placeholder");
     [self.contentView addSubview:password];
     [password mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(passwordIcon.mas_right).offset(5);
@@ -99,7 +99,7 @@
     loginButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [loginButton setBackgroundImage:[UIImage imageWithColor:UIColor.whiteColor] forState:UIControlStateNormal];
     [loginButton setTitleColor:[UIColor colorWithRGB:0x008afd] forState:UIControlStateNormal];
-    [loginButton setTitle:NSLocalizedString(@"login_corfirm", nil) forState:UIControlStateNormal];
+    [loginButton setTitle:NSLocalizedStringWithKey(@"login_corfirm") forState:UIControlStateNormal];
     [loginButton addTarget:self action:@selector(loginClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:loginButton];
     [loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -112,7 +112,7 @@
     UIButton *forgetPasswordButton = [UIButton buttonWithType:UIButtonTypeCustom];
     forgetPasswordButton.titleLabel.font = [UIFont systemFontOfSize:12];
     [forgetPasswordButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
-    [forgetPasswordButton setTitle:NSLocalizedString(@"login_forget_password", nil) forState:UIControlStateNormal];
+    [forgetPasswordButton setTitle:NSLocalizedStringWithKey(@"login_forget_password") forState:UIControlStateNormal];
     [forgetPasswordButton addTarget:self action:@selector(forgetPasswordClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:forgetPasswordButton];
     [forgetPasswordButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -126,7 +126,7 @@
     registerButton.layer.borderColor = UIColor.whiteColor.CGColor;
     registerButton.layer.borderWidth = 1;
     [registerButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
-    [registerButton setTitle:NSLocalizedString(@"login_register_button", nil) forState:UIControlStateNormal];
+    [registerButton setTitle:NSLocalizedStringWithKey(@"login_register_button") forState:UIControlStateNormal];
     [registerButton addTarget:self action:@selector(registerClicked:) forControlEvents:UIControlEventTouchUpInside];
     [registerButton sizeToFit];
     [self.contentView addSubview:registerButton];

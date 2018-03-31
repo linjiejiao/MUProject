@@ -62,3 +62,12 @@
 "device_detail_operation_log" = "操作记录";
 "device_detail_timer" = "定时";
 "device_detail_loop" = "循环";
+
+"operation_log_title" = "操作记录";
+"operation_log_action" = "动作";
+"operation_log_action_on" = "开";
+"operation_log_action_off" = "关";
+"operation_log_time" = "时间";
+"operation_log_trigger" = "设备或APP触发";
+"operation_log_trigger_device" = "设备";
+"operation_log_trigger_app" = "APP";
