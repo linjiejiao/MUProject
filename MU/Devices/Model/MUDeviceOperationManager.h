@@ -13,6 +13,6 @@
 
 + (MUDeviceOperationManager *)sharedInstance;
 
-- (BOOL)doOperateDevice:(MUDeviceItem *)deviceItem actionType:(MUDeviceOperationLogAction)action time:(NSTimeInterval)time trigger:(MUDeviceOperationLogTrigger)trigger;
+- (BOOL)doOperateDevice:(MUDeviceItem *)deviceItem actionType:(MUDeviceAction)action time:(NSTimeInterval)time trigger:(MUDeviceOperationLogTrigger)trigger;
 
 @end

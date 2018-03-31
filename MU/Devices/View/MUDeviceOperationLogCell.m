@@ -111,7 +111,7 @@
     }
     _operationLog = operationLog;
     NSString *actionText = nil;
-    if(operationLog.logActionType == MUDeviceOperationLogAction_On){
+    if(operationLog.logActionType == MUDeviceAction_On){
         actionText = NSLocalizedStringWithKey(@"operation_log_action_on");
     }else{
         actionText = NSLocalizedStringWithKey(@"operation_log_action_off");

@@ -113,7 +113,7 @@ typedef NS_ENUM(NSUInteger, SettingItemIndex) {
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - self.tabBarController.tabBar.size.height);
-    self.tabBarController.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = YES;
     NSString *nickName = [GlobalConfigModel getStringConfigWithKey:kGlobalConfigModel_NickName];
     if(nickName.length <= 0){
         nickName = @"MU";
@@ -124,7 +124,7 @@ typedef NS_ENUM(NSUInteger, SettingItemIndex) {
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    self.tabBarController.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBarHidden = NO;
 }
 
 // 用tabBarController的navigationController push新界面，否则底部tabBar会一直显示

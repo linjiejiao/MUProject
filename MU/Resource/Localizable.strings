@@ -71,3 +71,15 @@
 "operation_log_trigger" = "设备或APP触发";
 "operation_log_trigger_device" = "设备";
 "operation_log_trigger_app" = "APP";
+
+"device_timer_add" = "添加定时器";
+"device_timer_only_once" = "仅此一次";
+"device_timer_everyday" = "每天";
+"device_timer_day1" = "周一";
+"device_timer_day2" = "周二";
+"device_timer_day3" = "周三";
+"device_timer_day4" = "周四";
+"device_timer_day5" = "周五";
+"device_timer_day6" = "周六";
+"device_timer_day7" = "周日";
+

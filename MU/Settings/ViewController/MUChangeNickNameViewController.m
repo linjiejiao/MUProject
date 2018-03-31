@@ -62,7 +62,7 @@
     [confirmButton addTarget:self action:@selector(handleConfirmButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:confirmButton];
     [confirmButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view.mas_bottom).offset(-30);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-PortraitSafeBottomInset - 30);
         make.leading.equalTo(self.view.mas_leading).offset(20);
         make.trailing.equalTo(self.view.mas_trailing).offset(-20);
         make.height.mas_equalTo(44);

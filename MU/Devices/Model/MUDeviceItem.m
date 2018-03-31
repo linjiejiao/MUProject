@@ -15,3 +15,7 @@
 @implementation MUDeviceOperationLog
 
 @end
+
+@implementation MUDeviceTimerItem
+
+@end

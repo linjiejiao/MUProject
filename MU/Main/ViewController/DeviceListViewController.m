@@ -62,6 +62,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - self.tabBarController.tabBar.size.height - self.navigationController.navigationBar.size.height);
     [self.collectionView reloadData];
 }
 
@@ -76,7 +77,7 @@
 }
 
 #pragma mark - UICollectionViewDelegate
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     MUDeviceItem *deviceItem = [self.devicesDataSource getDeviceItemAtIndexPath:indexPath];
     if(!deviceItem){
         return;
@@ -91,12 +92,12 @@
 }
 
 - (void)deviceCell:(MUDeviceCollectionViewCell *)cell didClickSwitchButtonWithDeviceItem:(MUDeviceItem *)deviceItem {
-    MUDeviceOperationLogAction action = MUDeviceOperationLogAction_On;
+    MUDeviceAction action = MUDeviceAction_On;
     if(deviceItem.status == MUDeviceItemStatus_On){
-        action = MUDeviceOperationLogAction_Off;
+        action = MUDeviceAction_Off;
         deviceItem.status = MUDeviceItemStatus_Off;
     }else{
-        action = MUDeviceOperationLogAction_On;
+        action = MUDeviceAction_On;
         deviceItem.status = MUDeviceItemStatus_On;
     }
     [[MUDeviceOperationManager sharedInstance] doOperateDevice:deviceItem actionType:action time:[[NSDate date] timeIntervalSince1970] trigger:MUDeviceOperationLogTrigger_App];

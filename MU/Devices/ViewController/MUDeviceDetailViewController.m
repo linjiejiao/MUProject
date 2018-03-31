@@ -9,6 +9,7 @@
 #import "MUDeviceDetailViewController.h"
 #import "MUOperationLogViewController.h"
 #import "MUDeviceOperationManager.h"
+#import "MUTimerViewController.h"
 
 @interface MUDeviceDetailViewController ()
 @property (strong, nonatomic) MUDeviceItem *deviceItem;
@@ -98,13 +99,13 @@
 }
 
 - (void)handleSwitchClicked:(UIButton *)button {
-    MUDeviceOperationLogAction action = MUDeviceOperationLogAction_On;
+    MUDeviceAction action = MUDeviceAction_On;
     if(self.deviceItem.status == MUDeviceItemStatus_On){
-        action = MUDeviceOperationLogAction_Off;
+        action = MUDeviceAction_Off;
         self.deviceItem.status = MUDeviceItemStatus_Off;
         [self.switchButton setImage:[UIImage imageNamed:@"icon_switch_off"] forState:UIControlStateNormal];
     }else{
-        action = MUDeviceOperationLogAction_On;
+        action = MUDeviceAction_On;
         self.deviceItem.status = MUDeviceItemStatus_On;
         [self.switchButton setImage:[UIImage imageNamed:@"icon_switch_on"] forState:UIControlStateNormal];
     }
@@ -121,7 +122,8 @@
 }
 
 - (void)handleTimerClicked:(UIButton *)button {
-
+    MUTimerViewController *vc = [[MUTimerViewController alloc] initWithDeviceItem:self.deviceItem];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)handleLoopClicked:(UIButton *)button {

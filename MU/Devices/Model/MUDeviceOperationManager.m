@@ -19,7 +19,7 @@
     return sInstance;
 }
 
-- (BOOL)doOperateDevice:(MUDeviceItem *)deviceItem actionType:(MUDeviceOperationLogAction)action time:(NSTimeInterval)time trigger:(MUDeviceOperationLogTrigger)trigger {
+- (BOOL)doOperateDevice:(MUDeviceItem *)deviceItem actionType:(MUDeviceAction)action time:(NSTimeInterval)time trigger:(MUDeviceOperationLogTrigger)trigger {
     NSMutableArray<MUDeviceOperationLog *> *logs = [[NSMutableArray alloc] init];
     if(deviceItem.operationLogs.count > 0){
         [logs addObjectsFromArray:deviceItem.operationLogs];

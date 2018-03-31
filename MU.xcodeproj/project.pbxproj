@@ -43,6 +43,8 @@
 		8B26E05F206E9CB800B7F2B1 /* MUOperationLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E05E206E9CB800B7F2B1 /* MUOperationLogViewController.m */; };
 		8B26E062206E9FC100B7F2B1 /* MUDeviceOperationLogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E061206E9FC100B7F2B1 /* MUDeviceOperationLogCell.m */; };
 		8B26E065206F344E00B7F2B1 /* MUDeviceOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E064206F344E00B7F2B1 /* MUDeviceOperationManager.m */; };
+		8B26E068206F5DC600B7F2B1 /* MUTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E067206F5DC600B7F2B1 /* MUTimerViewController.m */; };
+		8B26E06B206F6F7200B7F2B1 /* MUTimerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E06A206F6F7200B7F2B1 /* MUTimerTableViewCell.m */; };
 		8FECDCF94AF0A6D2DF91A4F1 /* libPods-MU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D53776C2A811FFFCC9AC2F2 /* libPods-MU.a */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +120,10 @@
 		8B26E061206E9FC100B7F2B1 /* MUDeviceOperationLogCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUDeviceOperationLogCell.m; sourceTree = "<group>"; };
 		8B26E063206F344E00B7F2B1 /* MUDeviceOperationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUDeviceOperationManager.h; sourceTree = "<group>"; };
 		8B26E064206F344E00B7F2B1 /* MUDeviceOperationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUDeviceOperationManager.m; sourceTree = "<group>"; };
+		8B26E066206F5DC600B7F2B1 /* MUTimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUTimerViewController.h; sourceTree = "<group>"; };
+		8B26E067206F5DC600B7F2B1 /* MUTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUTimerViewController.m; sourceTree = "<group>"; };
+		8B26E069206F6F7200B7F2B1 /* MUTimerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUTimerTableViewCell.h; sourceTree = "<group>"; };
+		8B26E06A206F6F7200B7F2B1 /* MUTimerTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUTimerTableViewCell.m; sourceTree = "<group>"; };
 		C32C35A3D403BB6A1CA723A1 /* Pods-MU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MU.release.xcconfig"; path = "Pods/Target Support Files/Pods-MU/Pods-MU.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +179,8 @@
 				8B26E051206693B700B7F2B1 /* MUAddDeviceStep4View.m */,
 				8B26E060206E9FC100B7F2B1 /* MUDeviceOperationLogCell.h */,
 				8B26E061206E9FC100B7F2B1 /* MUDeviceOperationLogCell.m */,
+				8B26E069206F6F7200B7F2B1 /* MUTimerTableViewCell.h */,
+				8B26E06A206F6F7200B7F2B1 /* MUTimerTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +192,8 @@
 				72694E52206A76D400033411 /* MUDeviceDetailViewController.m */,
 				8B26E05D206E9CB800B7F2B1 /* MUOperationLogViewController.h */,
 				8B26E05E206E9CB800B7F2B1 /* MUOperationLogViewController.m */,
+				8B26E066206F5DC600B7F2B1 /* MUTimerViewController.h */,
+				8B26E067206F5DC600B7F2B1 /* MUTimerViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -545,6 +555,7 @@
 				7278C310205BB92400606A2B /* GlobalConfigModel.m in Sources */,
 				7263DCAD20639DFC00B4121B /* MUDeviceItem.m in Sources */,
 				7263DCB32065019400B4121B /* MUStepIndecatorView.m in Sources */,
+				8B26E06B206F6F7200B7F2B1 /* MUTimerTableViewCell.m in Sources */,
 				8B26E065206F344E00B7F2B1 /* MUDeviceOperationManager.m in Sources */,
 				72DC1E742043F3180073A205 /* AddDeviceViewController.m in Sources */,
 				7263DCAA20635BCD00B4121B /* BaseCollectionViewCell.m in Sources */,
@@ -555,6 +566,7 @@
 				72DC1E9F20453B910073A205 /* MULoginModel.m in Sources */,
 				8B26E04F2066919A00B7F2B1 /* MUAddDeviceStep3View.m in Sources */,
 				7278C313205BC19300606A2B /* MURegisterViewController.m in Sources */,
+				8B26E068206F5DC600B7F2B1 /* MUTimerViewController.m in Sources */,
 				7263DCA72062755500B4121B /* MUDeviceCollectionViewCell.m in Sources */,
 				8B26E049206537A700B7F2B1 /* MUAddDeviceStep1View.m in Sources */,
 				72DC1E8C204521720073A205 /* MULoginViewController.m in Sources */,
