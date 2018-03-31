@@ -47,6 +47,7 @@
 		8B26E06B206F6F7200B7F2B1 /* MUTimerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E06A206F6F7200B7F2B1 /* MUTimerTableViewCell.m */; };
 		8B26E06E206F973A00B7F2B1 /* MUAddTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E06D206F973A00B7F2B1 /* MUAddTimerViewController.m */; };
 		8B26E071206F975300B7F2B1 /* MUAddLoopOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E070206F975300B7F2B1 /* MUAddLoopOperationViewController.m */; };
+		8B26E074206FF77600B7F2B1 /* MUDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E073206FF77600B7F2B1 /* MUDeviceManager.m */; };
 		8FECDCF94AF0A6D2DF91A4F1 /* libPods-MU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D53776C2A811FFFCC9AC2F2 /* libPods-MU.a */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,8 @@
 		8B26E06D206F973A00B7F2B1 /* MUAddTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUAddTimerViewController.m; sourceTree = "<group>"; };
 		8B26E06F206F975300B7F2B1 /* MUAddLoopOperationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUAddLoopOperationViewController.h; sourceTree = "<group>"; };
 		8B26E070206F975300B7F2B1 /* MUAddLoopOperationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUAddLoopOperationViewController.m; sourceTree = "<group>"; };
+		8B26E072206FF77600B7F2B1 /* MUDeviceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUDeviceManager.h; sourceTree = "<group>"; };
+		8B26E073206FF77600B7F2B1 /* MUDeviceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUDeviceManager.m; sourceTree = "<group>"; };
 		C32C35A3D403BB6A1CA723A1 /* Pods-MU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MU.release.xcconfig"; path = "Pods/Target Support Files/Pods-MU/Pods-MU.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +167,8 @@
 				7263DCAF2063A0E900B4121B /* MUDevicesDataSource.m */,
 				8B26E063206F344E00B7F2B1 /* MUDeviceOperationManager.h */,
 				8B26E064206F344E00B7F2B1 /* MUDeviceOperationManager.m */,
+				8B26E072206FF77600B7F2B1 /* MUDeviceManager.h */,
+				8B26E073206FF77600B7F2B1 /* MUDeviceManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -588,6 +593,7 @@
 				8B26E05F206E9CB800B7F2B1 /* MUOperationLogViewController.m in Sources */,
 				8B26E06E206F973A00B7F2B1 /* MUAddTimerViewController.m in Sources */,
 				8B26E052206693B700B7F2B1 /* MUAddDeviceStep4View.m in Sources */,
+				8B26E074206FF77600B7F2B1 /* MUDeviceManager.m in Sources */,
 				7263DCB02063A0E900B4121B /* MUDevicesDataSource.m in Sources */,
 				72DC1E2F2043A1460073A205 /* main.m in Sources */,
 			);

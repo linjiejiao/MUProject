@@ -13,6 +13,7 @@
 #import "MUDeviceCollectionViewCell.h"
 #import "MUDevicesDataSource.h"
 #include "MUDeviceOperationManager.h"
+#import "MUDeviceManager.h"
 
 @interface DeviceListViewController () <UICollectionViewDelegate, MUDeviceCollectionViewCellDelegate>
 @property (strong, nonatomic) BaseCollectionView *collectionView;
@@ -48,6 +49,7 @@
     self.collectionView.delegate = self;
     self.devicesDataSource = [[MUDevicesDataSource alloc] initWithCellDelegate:self];
     self.collectionView.dataSource = self.devicesDataSource;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDeviceListChanged:) name:kNotifcation_MUDeviceManager_DeviceListChanged object:nil];
     __weak typeof(self) weakSelf = self;
     [self.devicesDataSource loadDataWithCompletion:^(BOOL success, NSArray<MUDeviceItem *> *devicesList) {
         typeof(self) strongSelf = weakSelf;
@@ -76,6 +78,20 @@
     [self.navigationController pushViewController:addDeviceViewVC animated:YES];
 }
 
+#pragma mark - notification
+- (void)handleDeviceListChanged:(NSNotification *)notification {
+    __weak typeof(self) weakSelf = self;
+    [self.devicesDataSource loadDataWithCompletion:^(BOOL success, NSArray<MUDeviceItem *> *devicesList) {
+        typeof(self) strongSelf = weakSelf;
+        if(!strongSelf){
+            return;
+        }
+        if(success){
+            [strongSelf.collectionView reloadData];
+        }
+    }];
+}
+
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     MUDeviceItem *deviceItem = [self.devicesDataSource getDeviceItemAtIndexPath:indexPath];
@@ -88,7 +104,7 @@
 
 #pragma mark - MUDeviceCollectionViewCellDelegate
 - (void)deviceCell:(MUDeviceCollectionViewCell *)cell didClickDeleteButtonWithDeviceItem:(MUDeviceItem *)deviceItem {
-
+    [[MUDeviceManager sharedInstance] removeDevice:deviceItem];
 }
 
 - (void)deviceCell:(MUDeviceCollectionViewCell *)cell didClickSwitchButtonWithDeviceItem:(MUDeviceItem *)deviceItem {
