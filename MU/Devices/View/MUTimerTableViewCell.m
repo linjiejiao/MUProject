@@ -74,10 +74,14 @@
 
 - (void)setTimerItem:(MUDeviceTimerItem *)timerItem {
     _timerItem = timerItem;
-    self.timeLabel.text = [NSString stringWithFormat:@"%02d:%02d", timerItem.minutesOfDay / 60, timerItem.minutesOfDay % 60];
     if(timerItem.repeatType == MUDeviceTimerItemRepeatType_OnlyOnce){
         self.repeatDays.text = NSLocalizedStringWithKey(@"device_timer_only_once");
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:timerItem.onceDate];
+        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+        [formater setDateFormat:@"yyyy-MM-dd HH:mm"];
+        self.timeLabel.text = [formater stringFromDate:date];
     }else{
+        self.timeLabel.text = [NSString stringWithFormat:@"%02d:%02d", timerItem.minutesOfDay / 60, timerItem.minutesOfDay % 60];
         if(timerItem.weeklyDays.count >= 7){
             self.repeatDays.text = NSLocalizedStringWithKey(@"device_timer_everyday");
         }else{

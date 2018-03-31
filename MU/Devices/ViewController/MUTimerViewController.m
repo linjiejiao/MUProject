@@ -8,6 +8,7 @@
 
 #import "MUTimerViewController.h"
 #import "MUTimerTableViewCell.h"
+#import "MUAddTimerViewController.h"
 
 @interface MUTimerViewController () <UITableViewDelegate, UITableViewDataSource, MUTimerTableViewCellDelegate>
 @property (strong, nonatomic) MUDeviceItem *deviceItem;
@@ -47,6 +48,7 @@
         make.bottom.equalTo(self.view.mas_bottom).offset(-PortraitSafeBottomInset);
         make.height.mas_equalTo(90);
     }];
+    [addTimerButton addTarget:self action:@selector(handleAddButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 
     UITableView *tableView = [[UITableView alloc] init];
     tableView.backgroundColor = [UIColor colorWithRGB:0xf2f2f2];
@@ -61,6 +63,15 @@
     tableView.dataSource = self;
     tableView.delegate = self;
     self.tableView = tableView;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableView reloadData];
+}
+
+- (void)handleAddButtonClicked:(UIButton *)button {
+    MUAddTimerViewController *vc = [[MUAddTimerViewController alloc] initWithDeviceItem:self.deviceItem];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableViewDataSource

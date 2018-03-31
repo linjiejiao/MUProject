@@ -72,5 +72,6 @@ typedef NS_ENUM(NSUInteger, MUDeviceTimerItemStrtus) {
 @property (assign, nonatomic) MUDeviceAction action;
 @property (strong, nonatomic) NSArray<NSNumber *> *weeklyDays;
 @property (assign, nonatomic) uint32_t minutesOfDay; //每天凌晨0点0分算起的分钟数
+@property (assign, nonatomic) NSTimeInterval onceDate; //一次性定时的时间
 
 @end

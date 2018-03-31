@@ -82,4 +82,16 @@
 "device_timer_day5" = "周五";
 "device_timer_day6" = "周六";
 "device_timer_day7" = "周日";
+"device_timer_hour" = "时";
+"device_timer_minute" = "分";
+"device_timer_execute_once" = "执行一次";
+"device_timer_execute_weekly" = "按周重复";
+"device_timer_select_week" = "星期：";
+"device_timer_select_time" = "时间";
+"device_timer_execute" = "执行：";
+"device_timer_execute_on" = "打开";
+"device_timer_execute_off" = "关闭";
+"device_timer_weekly_none_tips" = "请在一个星期中至少选择一天";
+"device_timer_date_passed_tips" = "不能选择已经过去的时间";
 
+"device_detail_loop_title" = "循环定时";

@@ -10,6 +10,7 @@
 #import "MUOperationLogViewController.h"
 #import "MUDeviceOperationManager.h"
 #import "MUTimerViewController.h"
+#import "MUAddLoopOperationViewController.h"
 
 @interface MUDeviceDetailViewController ()
 @property (strong, nonatomic) MUDeviceItem *deviceItem;
@@ -127,7 +128,8 @@
 }
 
 - (void)handleLoopClicked:(UIButton *)button {
-
+    MUAddLoopOperationViewController *vc = [[MUAddLoopOperationViewController alloc] initWithDeviceItem:self.deviceItem];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
