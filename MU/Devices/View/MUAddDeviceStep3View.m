@@ -58,7 +58,7 @@
     progressTimeLabel.font = [UIFont systemFontOfSize:16];
     progressTimeLabel.textColor = [UIColor colorWithRGB:0x656565];
     progressTimeLabel.numberOfLines = 2;
-    progressTimeLabel.text = NSLocalizedStringWithKey(@"3min");
+    progressTimeLabel.text = NSLocalizedStringWithKey(@"5s");
     [self addSubview:progressTimeLabel];
     [progressTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(descriptionLabel.mas_bottom).offset(10);
@@ -70,7 +70,6 @@
     progressView.layer.masksToBounds = YES;
     progressView.layer.cornerRadius = 7.5;
     [self addSubview:progressView];
-    progressView.progress = 0.5;
     [progressView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(progressTimeLabel.mas_centerY);
         make.leading.equalTo(self.mas_leading).offset(35);

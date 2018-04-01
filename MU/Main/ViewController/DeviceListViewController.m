@@ -18,6 +18,7 @@
 @interface DeviceListViewController () <UICollectionViewDelegate, MUDeviceCollectionViewCellDelegate>
 @property (strong, nonatomic) BaseCollectionView *collectionView;
 @property (strong, nonatomic) MUDevicesDataSource *devicesDataSource;
+@property (strong, nonatomic) UIImageView *emptyListView;
 
 @end
 
@@ -56,6 +57,11 @@
         if(!strongSelf){
             return;
         }
+        if (devicesList.count <= 0) {
+            strongSelf.emptyListView.hidden = NO;
+        }else{
+            strongSelf.emptyListView.hidden = YES;
+        }
         if(success){
             [strongSelf.collectionView reloadData];
         }
@@ -66,6 +72,18 @@
     [super viewWillAppear:animated];
     self.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - self.tabBarController.tabBar.size.height - self.navigationController.navigationBar.size.height - StatusBarHeight);
     [self.collectionView reloadData];
+}
+
+- (UIImageView *)emptyListView {
+    if(!_emptyListView){
+        _emptyListView = [[UIImageView alloc] init];
+        _emptyListView.image = [UIImage imageNamed:@"img_no_devices"];
+        [self.view addSubview:_emptyListView];
+        [_emptyListView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self.view);
+        }];
+    }
+    return _emptyListView;
 }
 
 // 用tabBarController的navigationController push新界面，否则底部tabBar会一直显示
@@ -85,6 +103,11 @@
         typeof(self) strongSelf = weakSelf;
         if(!strongSelf){
             return;
+        }
+        if (devicesList.count <= 0) {
+            strongSelf.emptyListView.hidden = NO;
+        }else{
+            strongSelf.emptyListView.hidden = YES;
         }
         if(success){
             [strongSelf.collectionView reloadData];

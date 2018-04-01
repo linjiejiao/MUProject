@@ -15,6 +15,8 @@
 "login_pin_code_placeholder" = "验证码";
 "login_send_pin_code" = "发送验证码";
 "login_corfirm" = "登录";
+"logining_tips" = "正在登录...";
+"registering_tips" = "正在注册...";
 "login_forget_password" = "忘记密码？";
 "login_register_button" = "快速注册";
 "register_corfirm" = "注册";

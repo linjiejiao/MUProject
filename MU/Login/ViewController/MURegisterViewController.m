@@ -182,8 +182,12 @@
 }
 
 - (void)registerClicked:(UIButton *)button {
-    [[AppDelegate instance] showMainViewController];
-    [[MULoginModel sharedInstance] setIsEverLogin:YES];
+    [self showLoadingViewWithText:NSLocalizedStringWithKey(@"registering_tips")];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self hideLoadingView];
+        [[AppDelegate instance] showMainViewController];
+        [[MULoginModel sharedInstance] setIsEverLogin:YES];
+    });
 }
 
 #pragma mark - Notifications

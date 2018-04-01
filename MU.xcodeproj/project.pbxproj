@@ -52,6 +52,7 @@
 		8B26E071206F975300B7F2B1 /* MUAddLoopOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E070206F975300B7F2B1 /* MUAddLoopOperationViewController.m */; };
 		8B26E074206FF77600B7F2B1 /* MUDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B26E073206FF77600B7F2B1 /* MUDeviceManager.m */; };
 		8BE7A9EB2070C60B001657A5 /* MUConfigDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7A9EA2070C60B001657A5 /* MUConfigDeviceViewController.m */; };
+		8BE7A9EE2070D861001657A5 /* LoadingTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7A9ED2070D861001657A5 /* LoadingTipsView.m */; };
 		8FECDCF94AF0A6D2DF91A4F1 /* libPods-MU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D53776C2A811FFFCC9AC2F2 /* libPods-MU.a */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +146,8 @@
 		8B26E073206FF77600B7F2B1 /* MUDeviceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUDeviceManager.m; sourceTree = "<group>"; };
 		8BE7A9E92070C60B001657A5 /* MUConfigDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUConfigDeviceViewController.h; sourceTree = "<group>"; };
 		8BE7A9EA2070C60B001657A5 /* MUConfigDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUConfigDeviceViewController.m; sourceTree = "<group>"; };
+		8BE7A9EC2070D861001657A5 /* LoadingTipsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingTipsView.h; sourceTree = "<group>"; };
+		8BE7A9ED2070D861001657A5 /* LoadingTipsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingTipsView.m; sourceTree = "<group>"; };
 		C32C35A3D403BB6A1CA723A1 /* Pods-MU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MU.release.xcconfig"; path = "Pods/Target Support Files/Pods-MU/Pods-MU.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -299,6 +302,8 @@
 				7263DCA920635BCD00B4121B /* BaseCollectionViewCell.m */,
 				72694E4E206A672600033411 /* BottomLineTextField.h */,
 				72694E4F206A672600033411 /* BottomLineTextField.m */,
+				8BE7A9EC2070D861001657A5 /* LoadingTipsView.h */,
+				8BE7A9ED2070D861001657A5 /* LoadingTipsView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -593,6 +598,7 @@
 				7278C310205BB92400606A2B /* GlobalConfigModel.m in Sources */,
 				7263DCAD20639DFC00B4121B /* MUDeviceItem.m in Sources */,
 				7263DCB32065019400B4121B /* MUStepIndecatorView.m in Sources */,
+				8BE7A9EE2070D861001657A5 /* LoadingTipsView.m in Sources */,
 				8B26E06B206F6F7200B7F2B1 /* MUTimerTableViewCell.m in Sources */,
 				8B0129D52070B6B20062BF78 /* BaseCodingObject.m in Sources */,
 				8B26E065206F344E00B7F2B1 /* MUDeviceOperationManager.m in Sources */,

@@ -8,9 +8,12 @@
 #import "BaseViewController.h"
 #import "ToastAlertView.h"
 
+#import "LoadingTipsView.h"
+
 #define MAX_TITLE_WIDTH     185.0f
 
 @interface BaseViewController ()
+@property (strong, nonatomic) LoadingTipsView *loadingView;
 
 @end
 
@@ -78,6 +81,19 @@
     [alert addAction:[UIAlertAction actionWithTitle:btn1Title style:UIAlertActionStyleDefault handler:btn1Handler]];
     [alert addAction:[UIAlertAction actionWithTitle:btn2Title style:UIAlertActionStyleCancel handler:btn2Handler]];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)showLoadingViewWithText:(NSString *)text {
+    if(self.loadingView){
+        [self.loadingView dismiss];
+    }
+    self.loadingView = [LoadingTipsView showInView:self.view withText:text];
+}
+
+- (void)hideLoadingView {
+    if(self.loadingView){
+        [self.loadingView dismiss];
+    }
 }
 
 #pragma mark - User Interactions

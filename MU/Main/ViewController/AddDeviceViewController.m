@@ -101,9 +101,19 @@
     if(self.stepIndex > 3){
         MUDeviceItem *newDevice = [[MUDeviceItem alloc] init];
         newDevice.name = [self.step4View getDeviceName];
+        if(newDevice.name.length <= 0){
+            self.stepIndex --;
+            [self showToast:@"设备名不能为空！"];
+            return;
+        }
         newDevice.type = self.step1View.selectedDeviceType;
         [[MUDeviceManager sharedInstance] addDevice:newDevice];
         [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+    if(self.stepIndex == 3) {
+        self.stepIndex = 1;
+        [self enterStep:self.stepIndex];
         return;
     }
     [self enterStep:self.stepIndex];
@@ -133,6 +143,35 @@
         self.step3View.hidden = NO;
         self.step4View.hidden = YES;
         [self.bottomButton setTitle:NSLocalizedStringWithKey(@"button_cancel") forState:UIControlStateNormal];
+        // fake code
+        [self.step3View setConnectingProgress:0.2];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if(self.stepIndex != 2){
+                return;
+            }
+            [self.step3View setConnectingProgress:0.4];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if(self.stepIndex != 2){
+                    return;
+                }
+                [self.step3View setConnectingProgress:0.6];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    if(self.stepIndex != 2){
+                        return;
+                    }
+                    [self.step3View setConnectingProgress:0.8];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        if(self.stepIndex != 2){
+                            return;
+                        }
+                        [self.step3View setConnectingProgress:1.0];
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            [self enterStep:++self.stepIndex];
+                        });
+                    });
+                });
+            });
+        });
     }else if(stepIndex == 3){
         self.step1View.hidden = YES;
         self.step2View.hidden = YES;
