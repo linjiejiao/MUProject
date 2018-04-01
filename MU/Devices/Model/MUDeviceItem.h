@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseCodingObject.h"
 
 @class MUDeviceOperationLog;
 @class MUDeviceTimerItem;
@@ -28,7 +29,7 @@ typedef NS_ENUM(NSUInteger, MUDeviceItemType) {
     MUDeviceItemType_Count, // 类型总数
 };
 
-@interface MUDeviceItem : NSObject
+@interface MUDeviceItem : BaseCodingObject
 @property (assign, nonatomic) int deviceId;
 @property (copy, nonatomic) NSString *name;
 @property (assign, nonatomic) MUDeviceItemStatus status;
@@ -37,6 +38,8 @@ typedef NS_ENUM(NSUInteger, MUDeviceItemType) {
 @property (strong, nonatomic) NSArray<MUDeviceOperationLog *> *operationLogs;
 @property (strong, nonatomic) NSArray<MUDeviceTimerItem *> *timerItems;
 
+- (void)save;
+
 @end
 
 typedef NS_ENUM(NSUInteger, MUDeviceOperationLogTrigger) {
@@ -44,7 +47,7 @@ typedef NS_ENUM(NSUInteger, MUDeviceOperationLogTrigger) {
     MUDeviceOperationLogTrigger_Device,
 };
 
-@interface MUDeviceOperationLog : NSObject
+@interface MUDeviceOperationLog : BaseCodingObject
 @property (assign, nonatomic) NSTimeInterval logTime;
 @property (assign, nonatomic) MUDeviceAction logActionType;
 @property (assign, nonatomic) MUDeviceOperationLogTrigger triggerType;
@@ -66,7 +69,7 @@ typedef NS_ENUM(NSUInteger, MUDeviceTimerItemStrtus) {
     MUDeviceTimerItemStrtus_Disable,
 };
 
-@interface MUDeviceTimerItem : NSObject
+@interface MUDeviceTimerItem : BaseCodingObject
 @property (assign, nonatomic) MUDeviceTimerItemStrtus status;
 @property (assign, nonatomic) MUDeviceTimerItemRepeatType repeatType;
 @property (assign, nonatomic) MUDeviceAction action;

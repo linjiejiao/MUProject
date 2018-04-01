@@ -11,6 +11,7 @@
 #import "MUDeviceOperationManager.h"
 #import "MUTimerViewController.h"
 #import "MUAddLoopOperationViewController.h"
+#import "MUConfigDeviceViewController.h"
 
 @interface MUDeviceDetailViewController ()
 @property (strong, nonatomic) MUDeviceItem *deviceItem;
@@ -82,6 +83,11 @@
     }];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.title = self.deviceItem.name;
+}
+
 - (UIButton *)createBotttomButtonWithTitle:(NSString *)title imageName:(NSString *)imageName {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -114,7 +120,8 @@
 }
 
 - (void)handleNavigationRightClicked:(UIButton *)sender {
-
+    MUConfigDeviceViewController *vc = [[MUConfigDeviceViewController alloc] initWithDeviceItem:self.deviceItem];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)handleOperationLogClicked:(UIButton *)button {

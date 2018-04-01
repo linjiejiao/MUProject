@@ -94,4 +94,8 @@
 "device_timer_weekly_none_tips" = "请在一个星期中至少选择一天";
 "device_timer_date_passed_tips" = "不能选择已经过去的时间";
 
+"device_detail_change_device_name" = "设备名称";
+"device_detail_config_title" = "设备设置";
+"device_detail_name_empty_tips" = "设备名称不能为空";
+
 "device_detail_loop_title" = "循环定时";

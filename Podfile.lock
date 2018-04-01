@@ -1,17 +1,25 @@
 PODS:
+  - CocoaLumberjack (3.4.1):
+    - CocoaLumberjack/Default (= 3.4.1)
+    - CocoaLumberjack/Extensions (= 3.4.1)
+  - CocoaLumberjack/Default (3.4.1)
+  - CocoaLumberjack/Extensions (3.4.1):
+    - CocoaLumberjack/Default
   - Masonry (1.0.2)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
+  - CocoaLumberjack (= 3.4.1)
   - Masonry (= 1.0.2)
   - YYKit (= 1.0.9)
 
 SPEC CHECKSUMS:
+  CocoaLumberjack: 2e258a064cacc8eb9a2aca318e24d02a0a7fd56d
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: a6193aa12b4f7db603d7a114d474b1e6fed0d69e
+PODFILE CHECKSUM: ff9f8e4c1d098e6f641a9847d0206f4c2179572a
 
 COCOAPODS: 1.2.1

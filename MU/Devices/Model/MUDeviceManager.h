@@ -21,4 +21,6 @@ FOUNDATION_EXPORT NSString* kNotifcation_MUDeviceManager_DeviceListChanged;
 
 - (void)removeDevice:(MUDeviceItem *)device;
 
+- (void)synchronize;
+
 @end

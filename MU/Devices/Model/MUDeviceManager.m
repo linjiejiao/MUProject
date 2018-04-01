@@ -7,7 +7,13 @@
 //
 
 #import "MUDeviceManager.h"
+#import "Sandbox.h"
+
 NSString * kNotifcation_MUDeviceManager_DeviceListChanged = @"kNotifcation_MUDeviceManager_DeviceListChanged";
+
+#define CachedDeviceListFileName    @"device_list"
+
+#define TAG @"MUDeviceManager"
 
 @interface MUDeviceManager ()
 @property (strong, nonatomic) NSMutableArray <MUDeviceItem *> *devicesList;
@@ -33,6 +39,18 @@ NSString * kNotifcation_MUDeviceManager_DeviceListChanged = @"kNotifcation_MUDev
         }
         return;
     }
+    NSString *filePath = [[Sandbox docPath] stringByAppendingPathComponent:CachedDeviceListFileName];
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath]){
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        self.devicesList = [unarchiver decodeObjectForKey:@"devicesList"];
+        [unarchiver finishDecoding];
+        if(completion){
+            completion(YES, [self.devicesList copy]);
+        }
+        return;
+    }
+
     // Test Data
     NSMutableArray<MUDeviceItem *> *array = [[NSMutableArray alloc] init];
     MUDeviceItem *item = [[MUDeviceItem alloc] init];
@@ -91,6 +109,7 @@ NSString * kNotifcation_MUDeviceManager_DeviceListChanged = @"kNotifcation_MUDev
     item.hasTimer = NO;
     [array addObject:item];
     self.devicesList = array;
+    [self synchronize];
     if(completion){
         completion(YES, [array copy]);
     }
@@ -104,6 +123,7 @@ NSString * kNotifcation_MUDeviceManager_DeviceListChanged = @"kNotifcation_MUDev
         self.devicesList = [[NSMutableArray alloc] init];
     }
     [self.devicesList addObject:device];
+    [self synchronize];
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotifcation_MUDeviceManager_DeviceListChanged object:nil];
 }
 
@@ -112,7 +132,19 @@ NSString * kNotifcation_MUDeviceManager_DeviceListChanged = @"kNotifcation_MUDev
         return;
     }
     [self.devicesList removeObject:device];
+    [self synchronize];
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotifcation_MUDeviceManager_DeviceListChanged object:nil];
+}
+
+- (void)synchronize {
+    NSMutableData *mutableData = [NSMutableData data];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:mutableData];
+    [archiver encodeObject:self.devicesList forKey:@"devicesList"];
+    [archiver finishEncoding];
+    NSString *filePath = [[Sandbox docPath] stringByAppendingPathComponent:CachedDeviceListFileName];
+    if (![mutableData writeToFile:filePath atomically:YES]) {
+        [Log e:TAG format:@"synchronize Failed to write file to %@", filePath];
+    }
 }
 
 @end

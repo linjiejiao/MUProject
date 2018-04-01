@@ -7,6 +7,7 @@
 //
 
 #import "MUAddTimerViewController.h"
+#import "MUDeviceManager.h"
 
 #define HeightlightBackgroundColor  [UIColor colorWithRGB:0x1990fb]
 #define HeightlightTextColor        [UIColor whiteColor]
@@ -113,7 +114,7 @@
     [self.radioButtonTurnOn addTarget:self action:@selector(handlExecuteTurnOnClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.radioButtonTurnOn.selected = YES;
     // 关闭
-    self.radioButtonTurnOff = [self createRadioButtonWithTitile:NSLocalizedStringWithKey(@"device_timer_execute_on")];
+    self.radioButtonTurnOff = [self createRadioButtonWithTitile:NSLocalizedStringWithKey(@"device_timer_execute_off")];
     [actionContainer addSubview:self.radioButtonTurnOff];
     [self.radioButtonTurnOff mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.radioButtonTurnOn.mas_trailing).offset(30);
@@ -283,6 +284,8 @@
     [temp addObjectsFromArray:self.deviceItem.timerItems];
     [temp addObject:timer];
     self.deviceItem.timerItems = temp;
+    self.deviceItem.hasTimer = YES;
+    [self.deviceItem save];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -10,6 +10,7 @@
 #import "MainTabBarViewController.h"
 #import "MULoginViewController.h"
 #import "MULoginModel.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 @interface AppDelegate ()
 
@@ -18,7 +19,13 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    [DDLog addLogger:[DDTTYLogger sharedInstance]]; // TTY = Xcode console
+    [DDLog addLogger:[DDASLLogger sharedInstance]]; // ASL = Apple System Logs
+    DDFileLogger *fileLogger = [[DDFileLogger alloc] init]; // File Logger
+    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+    [DDLog addLogger:fileLogger];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     if([[MULoginModel sharedInstance] isEverLogin]){

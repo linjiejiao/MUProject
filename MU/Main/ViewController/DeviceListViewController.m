@@ -64,7 +64,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - self.tabBarController.tabBar.size.height - self.navigationController.navigationBar.size.height);
+    self.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - self.tabBarController.tabBar.size.height - self.navigationController.navigationBar.size.height - StatusBarHeight);
     [self.collectionView reloadData];
 }
 

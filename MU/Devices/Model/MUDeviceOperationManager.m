@@ -7,6 +7,7 @@
 //
 
 #import "MUDeviceOperationManager.h"
+#import "MUDeviceManager.h"
 
 @implementation MUDeviceOperationManager
 
@@ -30,6 +31,7 @@
     newLog.triggerType = trigger;
     [logs addObject:newLog];
     deviceItem.operationLogs = logs;
+    [deviceItem save];
     return YES;
 }
 

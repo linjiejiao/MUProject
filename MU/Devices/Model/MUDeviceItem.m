@@ -7,8 +7,13 @@
 //
 
 #import "MUDeviceItem.h"
+#import "MUDeviceManager.h"
 
 @implementation MUDeviceItem
+
+- (void)save {
+     [[MUDeviceManager sharedInstance] synchronize];
+}
 
 @end
 

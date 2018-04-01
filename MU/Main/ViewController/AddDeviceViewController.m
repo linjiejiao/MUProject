@@ -13,6 +13,8 @@
 #import "MUAddDeviceStep3View.h"
 #import "MUAddDeviceStep4View.h"
 
+#import "MUDeviceManager.h"
+
 @interface AddDeviceViewController ()
 @property (strong, nonatomic) MUStepIndecatorView *stepIndecatorView;
 @property (strong, nonatomic) MUAddDeviceStep1View *step1View;
@@ -97,6 +99,10 @@
 - (void)handleBottomButtonClicked:(UIButton *)button {
     self.stepIndex++;
     if(self.stepIndex > 3){
+        MUDeviceItem *newDevice = [[MUDeviceItem alloc] init];
+        newDevice.name = [self.step4View getDeviceName];
+        newDevice.type = self.step1View.selectedDeviceType;
+        [[MUDeviceManager sharedInstance] addDevice:newDevice];
         [self.navigationController popViewControllerAnimated:YES];
         return;
     }
