@@ -23,6 +23,7 @@
 @property (strong, nonatomic) MUAddDeviceStep4View *step4View;
 @property (strong, nonatomic) UIButton *bottomButton;
 @property (assign, nonatomic) NSUInteger stepIndex;
+@property (strong, nonatomic) UITapGestureRecognizer *backgroundTapGestureRecognizer;
 
 @end
 
@@ -33,9 +34,10 @@
     self.title = NSLocalizedStringWithKey(@"add_device_title");
     self.stepIndex = 0;
     [self setupViews];
-    [self enterStep:self.stepIndex];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapBackground:)];
     [self.view addGestureRecognizer:tap];
+    self.backgroundTapGestureRecognizer = tap;
+    [self enterStep:self.stepIndex];
 }
 
 - (void)setupViews {
@@ -126,18 +128,21 @@
 - (void)enterStep:(NSUInteger)stepIndex {
     [self.stepIndecatorView heightlightStepIndecatorAtIndex:stepIndex];
     if(stepIndex == 0){
+        self.backgroundTapGestureRecognizer.enabled = NO;
         self.step1View.hidden = NO;
         self.step2View.hidden = YES;
         self.step3View.hidden = YES;
         self.step4View.hidden = YES;
         [self.bottomButton setTitle:NSLocalizedStringWithKey(@"button_next_step") forState:UIControlStateNormal];
     }else if(stepIndex == 1){
+        self.backgroundTapGestureRecognizer.enabled = YES;
         self.step1View.hidden = YES;
         self.step2View.hidden = NO;
         self.step3View.hidden = YES;
         self.step4View.hidden = YES;
         [self.bottomButton setTitle:NSLocalizedStringWithKey(@"button_next_step") forState:UIControlStateNormal];
     }else if(stepIndex == 2){
+        self.backgroundTapGestureRecognizer.enabled = NO;
         self.step1View.hidden = YES;
         self.step2View.hidden = YES;
         self.step3View.hidden = NO;
@@ -173,6 +178,7 @@
             });
         });
     }else if(stepIndex == 3){
+        self.backgroundTapGestureRecognizer.enabled = YES;
         self.step1View.hidden = YES;
         self.step2View.hidden = YES;
         self.step3View.hidden = YES;
