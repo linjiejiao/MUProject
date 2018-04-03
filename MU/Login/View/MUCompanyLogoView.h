@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MUCompanyLogoView : UIView
+@property (strong, nonatomic) UILabel *companyName;
+@property (strong, nonatomic) UILabel *companyNameEn;
 
 @end

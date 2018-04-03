@@ -15,6 +15,12 @@
 "login_pin_code_placeholder" = "验证码";
 "login_send_pin_code" = "发送验证码";
 "login_corfirm" = "登录";
+"login_phone_number_error" = "手机号码不正确！";
+"login_pin_code_error" = "验证码有误！";
+"login_pin_code_sent" = "验证码已发送到该手机上，请注意查收！";
+"login_password_too_short" = "密码不足8位！";
+"login_password_error" = "密码错误！";
+"login_password_different" = "两次输入的密码不一致！";
 "logining_tips" = "正在登录...";
 "registering_tips" = "正在注册...";
 "login_forget_password" = "忘记密码？";
@@ -33,6 +39,9 @@
 "add_device_step4_title" = "命名设备";
 "add_device_step2_description" = "1.请输入无线网络名称和密码；\n2.仅支持2.4G网络";
 "add_device_failed" = "配对失败";
+"add_device_name_empty" = "设备名不能为空！";
+"add_device_wifi_ssid_empty" = "WIFI网络名称不能为空！";
+"add_device_wifi_password_empty" = "WIFI密码不能为空！";
 "button_next_step" = "下一步";
 "button_cancel" = "取消";
 "button_finish" = "完成";
@@ -47,6 +56,9 @@
 "settings_change_nickneme" = "修改昵称";
 "settings_change_password" = "修改密码";
 "settings_about_us" = "关于我们";
+"settings_about_company" = "美优科技致力定制农业产品科技管理方案，并打造各类农业科技产品。\n加入我们，一起让农业变得更智能，更科技。";
+"settings_about_us_qrcode" = "扫码关注我们的微信公众号";
+"settings_about_us_know_more" = "了解更多";
 
 "feedback_description" = "请填写联系方式，方便我们联系您解决问题和跟进您的反馈";
 "feedback_contact_placeholder" = "联系方式";

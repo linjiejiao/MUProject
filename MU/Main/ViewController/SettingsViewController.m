@@ -9,10 +9,10 @@
 #import "SettingsViewController.h"
 #import "AppDelegate.h"
 #import "MULoginModel.h"
-#import "BaseWebViewController.h"
 #import "MUFeedbackViewController.h"
 #import "MUChangeNickNameViewController.h"
 #import "MUChangePasswordViewController.h"
+#import "MUAboutUsViewController.h"
 
 typedef NS_ENUM(NSUInteger, SettingItemIndex) {
     SettingItemIndex_Feedback = 0,
@@ -178,7 +178,8 @@ typedef NS_ENUM(NSUInteger, SettingItemIndex) {
             [self.navigationController pushViewController:viewController animated:YES];
         }break;
         case SettingItemIndex_AboutUs:{
-            [BaseWebViewController showWithUrl:@"http://www.baidu.com" from:self];
+            MUAboutUsViewController *viewController = [[MUAboutUsViewController alloc] init];
+            [self.navigationController pushViewController:viewController animated:YES];
         }break;
     }
 }

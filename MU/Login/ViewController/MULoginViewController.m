@@ -181,13 +181,13 @@
     NSString *password = self.password.text;
     NSString *storedPassword = [GlobalConfigModel getStringConfigWithKey:kGlobalConfigModel_Password];
     if(number.length != 11){
-        [self showToast:@"手机号码不正确！"];
+        [self showToast:NSLocalizedStringWithKey(@"login_phone_number_error")];
         return;
     }else if(password.length < 8){
-        [self showToast:@"密码不足8位！"];
+        [self showToast:NSLocalizedStringWithKey(@"login_password_too_short")];
         return;
     }else if(![password isEqualToString:storedPassword]){
-        [self showToast:@"密码不正确！"];
+        [self showToast:NSLocalizedStringWithKey(@"login_password_error")];
         return;
     }
     [self showLoadingViewWithText:NSLocalizedStringWithKey(@"logining_tips")];

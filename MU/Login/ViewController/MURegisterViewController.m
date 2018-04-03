@@ -186,10 +186,10 @@
 
 - (void)sendPinCodeClicked:(UIButton *)button {
     if(self.phoneNumber.text.length != 11){
-        [self showToast:@"手机号码不正确！"];
+        [self showToast:NSLocalizedStringWithKey(@"login_phone_number_error")];
         return;
     }
-    [self showToast:@"验证码已发送到该手机上，请注意查收！"];
+    [self showToast:NSLocalizedStringWithKey(@"login_pin_code_sent")];
 }
 
 - (void)registerClicked:(UIButton *)button {
@@ -198,16 +198,16 @@
     NSString *password = self.password.text;
     NSString *confirmPassword = self.confirmPassword.text;
     if(number.length != 11){
-        [self showToast:@"手机号码不正确！"];
+        [self showToast:NSLocalizedStringWithKey(@"login_phone_number_error")];
         return;
     }else if(![@"1234" isEqualToString:pinCode]){
-        [self showToast:@"验证码有误！"];
+        [self showToast:NSLocalizedStringWithKey(@"login_pin_code_error")];
         return;
     }else if(password.length < 8){
-        [self showToast:@"密码不足8位！"];
+        [self showToast:NSLocalizedStringWithKey(@"login_password_too_short")];
         return;
     }else if(![password isEqualToString:confirmPassword]){
-        [self showToast:@"两次输入的密码不一致！"];
+        [self showToast:NSLocalizedStringWithKey(@"login_password_different")];
         return;
     }
     [GlobalConfigModel setStringConfig:password forKey:kGlobalConfigModel_Password];

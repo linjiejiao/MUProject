@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72629EA320739F200045C30E /* MUAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72629EA220739F200045C30E /* MUAboutUsViewController.m */; };
 		7263DCA72062755500B4121B /* MUDeviceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7263DCA62062755500B4121B /* MUDeviceCollectionViewCell.m */; };
 		7263DCAA20635BCD00B4121B /* BaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7263DCA920635BCD00B4121B /* BaseCollectionViewCell.m */; };
 		7263DCAD20639DFC00B4121B /* MUDeviceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7263DCAC20639DFC00B4121B /* MUDeviceItem.m */; };
@@ -59,6 +60,8 @@
 /* Begin PBXFileReference section */
 		1D53776C2A811FFFCC9AC2F2 /* libPods-MU.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MU.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39EEEC45D970FCD2CDF11E2A /* Pods-MU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MU/Pods-MU.debug.xcconfig"; sourceTree = "<group>"; };
+		72629EA120739F200045C30E /* MUAboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUAboutUsViewController.h; sourceTree = "<group>"; };
+		72629EA220739F200045C30E /* MUAboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUAboutUsViewController.m; sourceTree = "<group>"; };
 		7263DCA52062755500B4121B /* MUDeviceCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUDeviceCollectionViewCell.h; sourceTree = "<group>"; };
 		7263DCA62062755500B4121B /* MUDeviceCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUDeviceCollectionViewCell.m; sourceTree = "<group>"; };
 		7263DCA820635BCD00B4121B /* BaseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewCell.h; sourceTree = "<group>"; };
@@ -449,6 +452,8 @@
 				72694E49206A513600033411 /* MUChangeNickNameViewController.m */,
 				72694E4B206A515900033411 /* MUChangePasswordViewController.h */,
 				72694E4C206A515900033411 /* MUChangePasswordViewController.m */,
+				72629EA120739F200045C30E /* MUAboutUsViewController.h */,
+				72629EA220739F200045C30E /* MUAboutUsViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -539,13 +544,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MU-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		09D9E36148923987183D98F4 /* [CP] Copy Pods Resources */ = {
@@ -611,6 +619,7 @@
 				72DC1E9F20453B910073A205 /* MULoginModel.m in Sources */,
 				8B26E04F2066919A00B7F2B1 /* MUAddDeviceStep3View.m in Sources */,
 				7278C313205BC19300606A2B /* MURegisterViewController.m in Sources */,
+				72629EA320739F200045C30E /* MUAboutUsViewController.m in Sources */,
 				8B26E068206F5DC600B7F2B1 /* MUTimerViewController.m in Sources */,
 				7263DCA72062755500B4121B /* MUDeviceCollectionViewCell.m in Sources */,
 				8B26E049206537A700B7F2B1 /* MUAddDeviceStep1View.m in Sources */,

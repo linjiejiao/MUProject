@@ -40,6 +40,7 @@
         make.top.equalTo(logoImageView.mas_bottom).offset(15);
         make.leading.trailing.equalTo(self);
     }];
+    self.companyName = companyName;
 
     UILabel *companyNameEn = [[UILabel alloc] init];
     companyNameEn.textColor = UIColor.whiteColor;
@@ -51,6 +52,7 @@
         make.top.equalTo(companyName.mas_bottom).offset(5);
         make.leading.trailing.equalTo(self);
     }];
+    self.companyNameEn = companyNameEn;
 }
 
 @end

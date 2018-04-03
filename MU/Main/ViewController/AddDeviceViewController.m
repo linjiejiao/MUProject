@@ -105,13 +105,25 @@
         newDevice.name = [self.step4View getDeviceName];
         if(newDevice.name.length <= 0){
             self.stepIndex --;
-            [self showToast:@"设备名不能为空！"];
+            [self showToast:NSLocalizedStringWithKey(@"add_device_name_empty")];
             return;
         }
         newDevice.type = self.step1View.selectedDeviceType;
         [[MUDeviceManager sharedInstance] addDevice:newDevice];
         [self.navigationController popViewControllerAnimated:YES];
         return;
+    }
+    if(self.stepIndex == 2){
+        if([self.step2View wifiSSID].length <= 0){
+            self.stepIndex --;
+            [self showToast:NSLocalizedStringWithKey(@"add_device_wifi_ssid_empty")];
+            return;
+        }
+        if([self.step2View wifiPassword].length <= 0){
+            self.stepIndex --;
+            [self showToast:NSLocalizedStringWithKey(@"add_device_wifi_password_empty")];
+            return;
+        }
     }
     if(self.stepIndex == 3) {
         self.stepIndex = 1;
