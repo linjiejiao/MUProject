@@ -18,6 +18,10 @@
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) UIView *contentView;
 @property (assign, nonatomic) BOOL isKeybordShown;
+@property (strong, nonatomic) BottomLineTextField *phoneNumber;
+@property (strong, nonatomic) BottomLineTextField *pinCode;
+@property (strong, nonatomic) BottomLineTextField *password;
+@property (strong, nonatomic) BottomLineTextField *confirmPassword;
 
 @end
 
@@ -72,6 +76,7 @@
 
     BottomLineTextField *phoneNumber = [[BottomLineTextField alloc] init];
     phoneNumber.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
+    phoneNumber.keyboardType = UIKeyboardTypePhonePad;
     phoneNumber.placeholder = NSLocalizedStringWithKey(@"login_phone_number_placeholder");
     [self.contentView addSubview:phoneNumber];
     [phoneNumber mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -79,6 +84,7 @@
         make.right.equalTo(sendPinButton.mas_left).offset(-10);
         make.centerY.equalTo(sendPinButton.mas_centerY);
     }];
+    self.phoneNumber = phoneNumber;
 
     BottomLineTextField *pinCode = [[BottomLineTextField alloc] init];
     pinCode.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
@@ -89,9 +95,11 @@
         make.left.equalTo(self.contentView.mas_left).offset(30);
         make.right.equalTo(self.contentView.mas_right).offset(-30);
     }];
+    self.pinCode = pinCode;
 
     BottomLineTextField *password = [[BottomLineTextField alloc] init];
     password.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
+    password.secureTextEntry = YES;
     password.placeholder = NSLocalizedStringWithKey(@"login_password_placeholder");
     [self.contentView addSubview:password];
     [password mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -99,9 +107,11 @@
         make.left.equalTo(self.contentView.mas_left).offset(30);
         make.right.equalTo(self.contentView.mas_right).offset(-30);
     }];
+    self.password = password;
 
     BottomLineTextField *confirmPassword = [[BottomLineTextField alloc] init];
     confirmPassword.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
+    confirmPassword.secureTextEntry = YES;
     confirmPassword.placeholder = NSLocalizedStringWithKey(@"login_password_confirm_placeholder");
     [self.contentView addSubview:confirmPassword];
     [confirmPassword mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -109,6 +119,7 @@
         make.left.equalTo(self.contentView.mas_left).offset(30);
         make.right.equalTo(self.contentView.mas_right).offset(-30);
     }];
+    self.confirmPassword = confirmPassword;
 
     UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     registerButton.layer.masksToBounds = YES;
@@ -173,15 +184,34 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)forgetPasswordClicked:(UIButton *)button {
-
-}
-
 - (void)sendPinCodeClicked:(UIButton *)button {
-
+    if(self.phoneNumber.text.length != 11){
+        [self showToast:@"手机号码不正确！"];
+        return;
+    }
+    [self showToast:@"验证码已发送到该手机上，请注意查收！"];
 }
 
 - (void)registerClicked:(UIButton *)button {
+    NSString *number = self.phoneNumber.text;
+    NSString *pinCode = self.pinCode.text;
+    NSString *password = self.password.text;
+    NSString *confirmPassword = self.confirmPassword.text;
+    if(number.length != 11){
+        [self showToast:@"手机号码不正确！"];
+        return;
+    }else if(![@"1234" isEqualToString:pinCode]){
+        [self showToast:@"验证码有误！"];
+        return;
+    }else if(password.length < 8){
+        [self showToast:@"密码不足8位！"];
+        return;
+    }else if(![password isEqualToString:confirmPassword]){
+        [self showToast:@"两次输入的密码不一致！"];
+        return;
+    }
+    [GlobalConfigModel setStringConfig:password forKey:kGlobalConfigModel_Password];
+
     [self showLoadingViewWithText:NSLocalizedStringWithKey(@"registering_tips")];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self hideLoadingView];

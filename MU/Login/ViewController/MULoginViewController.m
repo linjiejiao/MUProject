@@ -19,6 +19,8 @@
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) UIView *contentView;
 @property (assign, nonatomic) BOOL isKeybordShown;
+@property (strong, nonatomic) BottomLineTextField *password;
+@property (strong, nonatomic) BottomLineTextField *phoneNumber;
 
 @end
 
@@ -66,6 +68,7 @@
 
     BottomLineTextField *phoneNumber = [[BottomLineTextField alloc] init];
     phoneNumber.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
+    phoneNumber.keyboardType = UIKeyboardTypePhonePad;
     phoneNumber.placeholder = NSLocalizedStringWithKey(@"login_phone_number_placeholder");
     [self.contentView addSubview:phoneNumber];
     [phoneNumber mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -73,6 +76,7 @@
         make.centerY.equalTo(phoneIcon.mas_centerY);
         make.right.equalTo(self.contentView.mas_right).offset(-30);
     }];
+    self.phoneNumber = phoneNumber;
 
     UIImageView *passwordIcon = [[UIImageView alloc] init];
     passwordIcon.image = [UIImage imageNamed:@"login_icon_key"];
@@ -85,6 +89,7 @@
 
     BottomLineTextField *password = [[BottomLineTextField alloc] init];
     password.bottomLine.backgroundColor = [UIColor colorWithRGBA:0xffffff9f];
+    password.secureTextEntry = YES;
     password.placeholder = NSLocalizedStringWithKey(@"login_password_placeholder");
     [self.contentView addSubview:password];
     [password mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -92,6 +97,7 @@
         make.centerY.equalTo(passwordIcon.mas_centerY);
         make.right.equalTo(self.contentView.mas_right).offset(-30);
     }];
+    self.password = password;
 
     UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
     loginButton.layer.masksToBounds = YES;
@@ -119,6 +125,7 @@
         make.top.equalTo(loginButton.mas_bottom).offset(20);
         make.leading.equalTo(loginButton.mas_leading);
     }];
+    forgetPasswordButton.hidden = YES;
 
     UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     registerButton.titleLabel.font = [UIFont systemFontOfSize:12];
@@ -170,6 +177,19 @@
 }
 
 - (void)loginClicked:(UIButton *)button {
+    NSString *number = self.phoneNumber.text;
+    NSString *password = self.password.text;
+    NSString *storedPassword = [GlobalConfigModel getStringConfigWithKey:kGlobalConfigModel_Password];
+    if(number.length != 11){
+        [self showToast:@"手机号码不正确！"];
+        return;
+    }else if(password.length < 8){
+        [self showToast:@"密码不足8位！"];
+        return;
+    }else if(![password isEqualToString:storedPassword]){
+        [self showToast:@"密码不正确！"];
+        return;
+    }
     [self showLoadingViewWithText:NSLocalizedStringWithKey(@"logining_tips")];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self hideLoadingView];
