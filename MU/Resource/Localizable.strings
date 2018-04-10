@@ -113,3 +113,9 @@
 "device_detail_name_empty_tips" = "设备名称不能为空";
 
 "device_detail_loop_title" = "循环定时";
+"loop_timer_text_every" = "每";
+"loop_timer_text_last_for" = "持续";
+"loop_timer_text_hour" = "小时";
+"loop_timer_text_minute_execute" = "分钟执行";
+"loop_timer_text_after_minute_execute" = "分钟后执行";
+"loop_timer_text_start_time" = "起始时间";
