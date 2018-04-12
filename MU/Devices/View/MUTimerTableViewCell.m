@@ -66,7 +66,7 @@
     [statusButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.contentView.mas_trailing).offset(-20);
         make.centerY.equalTo(self.contentView.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(75, 40));
+        make.size.mas_equalTo(CGSizeMake(59, 40));
     }];
     [statusButton addTarget:self action:@selector(handleStatusButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.statusButton = statusButton;
